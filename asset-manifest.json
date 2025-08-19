@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/video-survey/static/css/main.f855e6bc.css",
+    "main.js": "/video-survey/static/js/main.b9d79683.js",
+    "static/js/453.513f9105.chunk.js": "/video-survey/static/js/453.513f9105.chunk.js",
+    "static/media/logo.svg": "/video-survey/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/video-survey/index.html",
+    "main.f855e6bc.css.map": "/video-survey/static/css/main.f855e6bc.css.map",
+    "main.b9d79683.js.map": "/video-survey/static/js/main.b9d79683.js.map",
+    "453.513f9105.chunk.js.map": "/video-survey/static/js/453.513f9105.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.b9d79683.js"
+  ]
+}
