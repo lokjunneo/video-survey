@@ -6,7 +6,6 @@ import AuthForm from './components/auth-form';
 function App() {
   return (
     <div className="App">
-      <AuthForm></AuthForm>
     </div>
   );
 }
