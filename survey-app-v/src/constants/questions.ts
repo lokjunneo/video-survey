@@ -25,3 +25,16 @@ export const backgroundCoherenceQn: SurveyDataFormat = {
         5: "Completely coherent"
     }
 }
+
+export const errorFreeQualityQn: SurveyDataFormat = {
+    name: "error-free-quality",
+    title: "Error-free Quality",
+    description: "How error-free is the video?",
+    ratinglabels: {
+        1: "Complete disaster",
+        2: "A lot of errors",
+        3: "Quite a number of errors",
+        4: "Almost error free",
+        5: "Completely free from errors"
+    }
+}
