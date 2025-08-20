@@ -1,18 +1,28 @@
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css'
-import AuthForm from "./components/auth-form"
+import AuthForm from "./components/AuthForm"
 import SurveyForm from "./components/SurveyForm"
 import VideoPlayer from "./components/VideoPlayer"
+import { backgroundCoherenceQn, naturalnessofMovementsQn } from './constants/questions';
 
 function App() {
   return (
     <div className="App">
       { window.sessionStorage.getItem("password") ? 
-      <div className='grid grid-cols-5 gap-4 p-4 place-items-center'>
-        <div className='col-span-3 sticky top-[32px] bottom-[32px]'>
-          <VideoPlayer className=''></VideoPlayer>
-        </div>
-        <SurveyForm className="col-span-2"></SurveyForm> 
-      </div> : <AuthForm></AuthForm> }
+        <BrowserRouter>
+          <Routes>
+            <Route path="/video-survey/:id" element={
+              <div className='w-full min-h-screen bg-gray-50 flex'>
+                <div className='w-3/5 sticky top-0 left-0 h-screen max-h-full flex items-center justify-center p-8'>
+                  <VideoPlayer src="videos/HL2P-1A-1.mp4" description="The cardboard standee comes to life and walks towards the camera"></VideoPlayer>
+                </div>
+                      <SurveyForm className="w-2/5 ml-auto p-10"  qns={[naturalnessofMovementsQn, backgroundCoherenceQn]}></SurveyForm> 
+              </div>
+            }>
+            </Route>
+            <Route path="/video-survey/" element={<Navigate to="/video-survey/1" replace />}></Route>
+          </Routes>
+        </BrowserRouter> : <AuthForm></AuthForm> }
       
     </div>
   );

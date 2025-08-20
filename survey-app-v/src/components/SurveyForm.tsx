@@ -4,9 +4,11 @@ import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase'; // Import your initialized db instance
 import QuestionCard from './QuestionCard';
 import type { RatingLabelMap } from '@/utils/ratinglabels';
+import type { SurveyDataFormat } from '@/utils/surveydataformat';
 
 interface SurveyFormProps extends HTMLAttributes<HTMLDivElement> {  
   vId?: string; // optional, can override default "rating"
+  qns?: SurveyDataFormat[]
 }
 
 const exampleLabels: RatingLabelMap = {
@@ -17,7 +19,7 @@ const exampleLabels: RatingLabelMap = {
   5: "Very abnormal",
 };
 
-const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className=""}: SurveyFormProps) => {
+const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="",qns=[]}: SurveyFormProps) => {
     const [status, setStatus] = useState<string>("");
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -30,6 +32,10 @@ const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className=""}: Survey
       formData.forEach((value, key) => {
         data[key] = value.toString();
       });
+
+      
+        
+      console.log(data)
   
       try {
         await addDoc(collection(db, "submissions"), {
@@ -50,53 +56,36 @@ const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className=""}: Survey
     return (
       <div className={className}>
         
-        <form onSubmit={handleSubmit}>
-          <QuestionCard 
-            name="Natural-example" 
-            title="Naturalness" 
-            description="How natural are the movements in the video?" 
-            labels={exampleLabels}
-            ></QuestionCard>
+        <div className='w-auto inline-flex flex-col'>
+        <form onSubmit={(e) => {e.preventDefault(); handleSubmit(e)}}>
+          {
+            qns.map((qn) => {
+              return <div>
+              
+                <QuestionCard 
+                  name={qn.name}
+                  title={qn.title} 
+                  description={qn.description} 
+                  labels={qn.ratinglabels}
+                  />
 
-          <br></br>
-
-          <QuestionCard 
-            name="Natural-example" 
-            title="Naturalness" 
-            description="How natural are the movements in the video?" 
-            labels={exampleLabels}
-            ></QuestionCard>
-
-          <br></br>
-
-          <QuestionCard 
-            name="Natural-example" 
-            title="Naturalness" 
-            description="How natural are the movements in the video?" 
-            labels={exampleLabels}
-            ></QuestionCard>
-
-          <br></br>
-
-          <QuestionCard 
-            name="Natural-example" 
-            title="Naturalness" 
-            description="How natural are the movements in the video?" 
-            labels={exampleLabels}
-            ></QuestionCard>
-
-          <br></br>
+                  <br />
+                  
+                </div>
+            })
+          }
           
           <div className="flex flex-col">
             <button
               type="submit"
-              className="w-full bg-blue-600 text-black py-2 rounded hover:bg-blue-700"
+              className="g-blue-600 text-black py-2 rounded hover:bg-blue-700 shadow"
             >
               Submit & Proceed
             </button>
           </div>
         </form>
         {status && <p className="mt-3">{status}</p>}
+      </div>
       </div>
     );
   }

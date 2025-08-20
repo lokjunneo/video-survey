@@ -5,7 +5,8 @@ interface RatingSliderProps extends HTMLAttributes<HTMLDivElement>{
 //   value: number;
 //   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   name?: string, // optional, can override default "rating"
-  labels? :RatingLabelMap
+  labels? :RatingLabelMap,
+  setIsNegativeScore?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 // const labels: RatingLabelMap = {
@@ -17,18 +18,21 @@ interface RatingSliderProps extends HTMLAttributes<HTMLDivElement>{
 // };
 
 const RatingSlider = forwardRef<HTMLInputElement, RatingSliderProps>(
-    ({ name = "rating", labels }, ref) => {
+    ({ name = "rating", labels, setIsNegativeScore }, ref) => {
 
-        const [value, setValue] = useState(3.5);
+        const [value, setValue] = useState(5);
 
         // For half steps, show nearest integer label
         const displayLabel = (labels) ?  ": " + labels[Math.round(value)] : "";
     
         return (
             <div className="flex flex-col items-center space-y-2">
-            <span className="text-sm font-medium">{value} {displayLabel}</span>
+            {value !== -1 ?  
+              <span className="text-sm font-sm italic text-gray-500">{value} {displayLabel}</span>:
+              <></>
+            }
             <div className="flex-row items-center w-full">
-                <span className="m-4">1</span>
+                <span className="w-1/6 text-center inline-block">1</span>
                 <input
                     ref={ref}
                     type="range"
@@ -37,10 +41,16 @@ const RatingSlider = forwardRef<HTMLInputElement, RatingSliderProps>(
                     max={5}
                     step={0.5}
                     value={value}
-                    onChange={(e) => setValue(parseFloat(e.target.value))}
-                    className="w-2/4 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500"
+                    onChange={(e) => {
+                      const newValue = parseFloat(e.target.value)
+                      setValue(newValue)
+                      if (newValue < 5) {setIsNegativeScore?.(true)}
+                      else {setIsNegativeScore?.(false)}
+                    }}
+                    className="w-4/6 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500"
+                    required
                 />
-                <span className="m-4">5</span>
+                <span className="w-1/6 text-center inline-block">5</span>
             </div>
             {/* <div className="w-64 flex justify-between mt-1 text-xs font-semibold">
             {Array.from({ length: 5 }, (_, i) => (
