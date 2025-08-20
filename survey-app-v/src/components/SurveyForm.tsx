@@ -11,13 +11,13 @@ interface SurveyFormProps extends HTMLAttributes<HTMLDivElement> {
   qns?: SurveyDataFormat[]
 }
 
-const exampleLabels: RatingLabelMap = {
-  1: "Perfectly normal",
-  2: "Slightly abnormal",
-  3: "Moderately abnormal",
-  4: "Abnormal",
-  5: "Very abnormal",
-};
+// const exampleLabels: RatingLabelMap = {
+//   1: "Perfectly normal",
+//   2: "Slightly abnormal",
+//   3: "Moderately abnormal",
+//   4: "Abnormal",
+//   5: "Very abnormal",
+// };
 
 const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="",qns=[]}: SurveyFormProps) => {
     const [status, setStatus] = useState<string>("");
