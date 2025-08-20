@@ -3,21 +3,12 @@ import React, { useState, type FC, type HTMLAttributes } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase'; // Import your initialized db instance
 import QuestionCard from './QuestionCard';
-import type { RatingLabelMap } from '@/utils/ratinglabels';
 import type { SurveyDataFormat } from '@/utils/surveydataformat';
 
 interface SurveyFormProps extends HTMLAttributes<HTMLDivElement> {  
   vId?: string; // optional, can override default "rating"
   qns?: SurveyDataFormat[]
 }
-
-// const exampleLabels: RatingLabelMap = {
-//   1: "Perfectly normal",
-//   2: "Slightly abnormal",
-//   3: "Moderately abnormal",
-//   4: "Abnormal",
-//   5: "Very abnormal",
-// };
 
 const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="",qns=[]}: SurveyFormProps) => {
     const [status, setStatus] = useState<string>("");
