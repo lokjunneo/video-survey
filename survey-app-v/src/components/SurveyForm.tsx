@@ -2,11 +2,20 @@
 import React, { useState, type FC, type HTMLAttributes } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase'; // Import your initialized db instance
-import RatingSlider from './RatingSlider';
+import QuestionCard from './QuestionCard';
+import type { RatingLabelMap } from '@/utils/ratinglabels';
 
-interface SurveyFormProps extends HTMLAttributes<HTMLDivElement> {
-    vId?: string; // optional, can override default "rating"
-  }
+interface SurveyFormProps extends HTMLAttributes<HTMLDivElement> {  
+  vId?: string; // optional, can override default "rating"
+}
+
+const exampleLabels: RatingLabelMap = {
+  1: "Perfectly normal",
+  2: "Slightly abnormal",
+  3: "Moderately abnormal",
+  4: "Abnormal",
+  5: "Very abnormal",
+};
 
 const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className=""}: SurveyFormProps) => {
     const [status, setStatus] = useState<string>("");
@@ -42,17 +51,41 @@ const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className=""}: Survey
       <div className={className}>
         
         <form onSubmit={handleSubmit}>
-          <div className="max-w-md w-full mx-auto bg-white shadow rounded-lg flex-col">
-            <p className="text-normal font-bold mb-8">How coherent is the video?</ p>
-            <RatingSlider name="coherence-score"></RatingSlider>
-          </div>
+          <QuestionCard 
+            name="Natural-example" 
+            title="Naturalness" 
+            description="How natural are the movements in the video?" 
+            labels={exampleLabels}
+            ></QuestionCard>
 
           <br></br>
 
-          <div className="max-w-md w-full mx-auto bg-white shadow rounded-lg flex-col">
-            <p className="text-normal font-bold mb-8">How natural are the movements in the video?</ p>
-            <RatingSlider name="coherence"></RatingSlider>
-          </div>
+          <QuestionCard 
+            name="Natural-example" 
+            title="Naturalness" 
+            description="How natural are the movements in the video?" 
+            labels={exampleLabels}
+            ></QuestionCard>
+
+          <br></br>
+
+          <QuestionCard 
+            name="Natural-example" 
+            title="Naturalness" 
+            description="How natural are the movements in the video?" 
+            labels={exampleLabels}
+            ></QuestionCard>
+
+          <br></br>
+
+          <QuestionCard 
+            name="Natural-example" 
+            title="Naturalness" 
+            description="How natural are the movements in the video?" 
+            labels={exampleLabels}
+            ></QuestionCard>
+
+          <br></br>
           
           <div className="flex flex-col">
             <button
