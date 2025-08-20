@@ -22,8 +22,7 @@ const RatingSlider = forwardRef<HTMLInputElement, RatingSliderProps>(
 
         const [value, setValue] = useState(5);
 
-        // For half steps, show nearest integer label
-        const displayLabel = (labels) ?  ": " + labels[Math.round(value)] : "";
+        const displayLabel = (labels) ?  ": " + labels[Math.floor(value)] : "";
     
         return (
             <div className="flex flex-col items-center space-y-2">
