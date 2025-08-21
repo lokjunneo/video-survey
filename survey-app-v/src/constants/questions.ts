@@ -1,6 +1,6 @@
-import type { SurveyDataFormat } from "@/utils/surveydataformat";
+import type { QuestionDataFormat } from "@/utils/questiondataformat";
 
-export const naturalnessofMovementsQn: SurveyDataFormat = {
+export const naturalnessofMovementsQn: QuestionDataFormat = {
     name: "movement-natural",
     title: "Naturalness of Movements",
     description: "How natural does the character's movements appear?",
@@ -13,7 +13,7 @@ export const naturalnessofMovementsQn: SurveyDataFormat = {
     }
 }
 
-export const backgroundCoherenceQn: SurveyDataFormat = {
+export const backgroundCoherenceQn: QuestionDataFormat = {
     name: "background-coherence",
     title: "Coherence of Background",
     description: "How coherent/natural is the background of the video?",
@@ -26,15 +26,56 @@ export const backgroundCoherenceQn: SurveyDataFormat = {
     }
 }
 
-export const errorFreeQualityQn: SurveyDataFormat = {
+export const errorFreeQualityQn: QuestionDataFormat = {
     name: "error-free-quality",
     title: "Error-free Quality",
-    description: "How error-free is the video?",
+    description: "Rate how free the video is from errors.\n(glitches, distortion, objects/items morphing or disappearing etc)",
     ratinglabels: {
         1: "Complete disaster",
         2: "A lot of errors",
         3: "Quite a number of errors",
         4: "Almost error free",
         5: "Completely free from errors"
+    }
+}
+
+export const genObjConsistencyQn = (objects: string[]) : QuestionDataFormat => {
+    
+    let objectsStr = ""
+    objects.forEach((obj, i) => {
+        objectsStr += obj
+        if (objects.length - i - 1 === 1) objectsStr += " and "
+        else if (objects.length - i - 1 > 1) objectsStr += ", "
+    })
+
+    return {
+        name: "object-consistency",
+        title: "Character/Object Consistency",
+        description: `Rate how consistent ${objectsStr} ${(objects.length === 1) ? "is." : "are."}`,
+        ratinglabels: {
+            1: "Completely inconsistent",
+            2: "Very inconsistent",
+            3: "Somewhat consistent",
+            4: "Mostly consistent",
+            5: "Completely consistent"
+        }
+    }
+
+}
+
+export const genConceptAlignmentQn = (prompt: string) : QuestionDataFormat => {
+
+    return {
+        name: "concept-alignment",
+        title: "Concept Alignment",
+        description: `Rate how well the video matches the given concept:\n${prompt}`,
+        ratinglabels: {
+            1: "Not matching at all",
+            2: "Barely matching",
+            3: "Somewhat matching",
+            4: "Mostly matching",
+            5: "Perfectly matching"
+        }    
+
     }
 }

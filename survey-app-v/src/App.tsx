@@ -3,7 +3,7 @@ import './App.css'
 import AuthForm from "./components/AuthForm"
 import SurveyForm from "./components/SurveyForm"
 import VideoPlayer from "./components/VideoPlayer"
-import { backgroundCoherenceQn, errorFreeQualityQn, naturalnessofMovementsQn } from './constants/questions';
+import { surveyForms } from './constants/forms';
 
 function App() {
   return (
@@ -14,9 +14,9 @@ function App() {
             <Route path="/video-survey/:id" element={
               <div className='w-full min-h-screen bg-gray-50 flex'>
                 <div className='w-3/5 sticky top-0 left-0 h-screen max-h-full flex items-center justify-center p-8'>
-                  <VideoPlayer src="videos/HL2P-1A-1.mp4" description="The cardboard standee comes to life and walks towards the camera"></VideoPlayer>
+                  <VideoPlayer src={surveyForms[0].vidUrl} description={surveyForms[0].vidDesc}></VideoPlayer>
                 </div>
-                      <SurveyForm className="w-2/5 ml-auto p-10"  qns={[naturalnessofMovementsQn, backgroundCoherenceQn, errorFreeQualityQn]}></SurveyForm> 
+                      <SurveyForm className="w-2/5 ml-auto p-10"  qns={surveyForms[0].qns}></SurveyForm> 
               </div>
             }>
             </Route>

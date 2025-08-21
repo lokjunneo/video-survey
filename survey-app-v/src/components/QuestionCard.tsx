@@ -17,7 +17,13 @@ const QuestionCard: FC<QuestionCardProps> = ({ name, title, description, labels,
     return (
         <div className="max-w-md w-full mx-auto bg-white shadow rounded-lg flex-col px-5 py-5">
             <p className="text-normal font-bold mb-1">{title}</ p>
-            <p className="text-normal mb-3">{description}</ p>
+            {
+                description?.split("\n").map((line, i) => {
+                    let fontSize = "text-base"
+                    if (i > 0) fontSize += " italic"
+                    return <p className={`${fontSize}`}>{line}</ p>
+                })
+            }
             { 
                 requireExplanation ? 
                 <RatingSlider name={name +"-score"} labels={labels} setIsNegativeScore={setIsNegativeScore}></RatingSlider> :

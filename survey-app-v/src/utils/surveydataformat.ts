@@ -1,8 +1,7 @@
-import type { RatingLabelMap } from "./ratinglabels";
+import type { QuestionDataFormat } from "./questiondataformat";
 
 export interface SurveyDataFormat {
-    name: string;
-    title: string;
-    description: string;
-    ratinglabels: RatingLabelMap;
+    vidUrl: string,
+    vidDesc: string,
+    qns: QuestionDataFormat[]
 }

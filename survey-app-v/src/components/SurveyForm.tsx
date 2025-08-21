@@ -3,11 +3,11 @@ import React, { useState, type FC, type HTMLAttributes } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase'; // Import your initialized db instance
 import QuestionCard from './QuestionCard';
-import type { SurveyDataFormat } from '@/utils/surveydataformat';
+import type { QuestionDataFormat } from '@/utils/questiondataformat';
 
 interface SurveyFormProps extends HTMLAttributes<HTMLDivElement> {  
   vId?: string; // optional, can override default "rating"
-  qns?: SurveyDataFormat[]
+  qns?: QuestionDataFormat[]
 }
 
 const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="",qns=[]}: SurveyFormProps) => {
@@ -48,6 +48,14 @@ const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="",qns=[]}:
       <div className={className}>
         
         <div className='w-auto inline-flex flex-col'>
+          <div className="max-w-md w-full mx-auto bg-white shadow rounded-lg flex-col px-5 py-5 text-left">
+            <p className="text-normal font-bold mb-1">Instructions</ p> 
+            <p className="text-normal font-normal mb-3">For each question, rate the video on a scale of 1 to 5.</ p> 
+            <p className="text-normal font-normal mb-3"> Focus only on the <b>specific</b> attribute mentioned in the question. </p>
+            <p className="text-normal font-normal italic mb-3">Example: If the question is about the quality of movements, evaluate only the movements and ignore other issues that are unrelated.</ p> 
+          </div>
+
+          <br />
         <form onSubmit={(e) => {e.preventDefault(); handleSubmit(e)}}>
           {
             qns.map((qn) => {
