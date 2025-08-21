@@ -1,17 +1,28 @@
 // src/components/SubmissionForm.jsx
-import React, { useState, type FC, type HTMLAttributes } from 'react';
+import React, { useEffect, useRef, useState, type FC, type HTMLAttributes } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase'; // Import your initialized db instance
 import QuestionCard from './QuestionCard';
 import type { QuestionDataFormat } from '@/utils/questiondataformat';
+import { useNavigate, useParams } from 'react-router-dom';
 
 interface SurveyFormProps extends HTMLAttributes<HTMLDivElement> {  
-  vId?: string; // optional, can override default "rating"
+  vId: string; // optional, can override default "rating"
   qns?: QuestionDataFormat[]
 }
 
 const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="",qns=[]}: SurveyFormProps) => {
     const [status, setStatus] = useState<string>("");
+    const { idParam } = useParams()
+    const navigate = useNavigate()
+    const currentId = idParam ? parseInt(idParam, 10) : -1;
+    // const newId = Number.isNaN(currentId) || currentId < 1 ? 0 : currentId + 1;
+
+    const newId = useRef(-1)
+    useEffect( () => {
+      newId.current = Number.isNaN(currentId) || currentId < 1 ? 0 : currentId + 1;
+    })
+    
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
   
@@ -31,15 +42,23 @@ const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="",qns=[]}:
       try {
         await addDoc(collection(db, "submissions"), {
           ...data,
-          password: window.sessionStorage.getItem("password"), // required by your Firestore rule
+          name: window.sessionStorage.getItem("name"),
+          email: window.sessionStorage.getItem("email"),
           videoId: vId,
           createdAt: new Date(),
+          password: window.sessionStorage.getItem("password"), 
         });
   
         setStatus("✅ Submission successful! Moving on...");
 
+        navigate(`/video-survey/${newId.current}`);
+
+        window.location.reload();
+
+
         form.reset();
       } catch (err) {
+        console.log(err)
         setStatus("❌ Failed to submit results.");
       }
     };

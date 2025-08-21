@@ -23,12 +23,13 @@ export default function AuthForm() {
       try {
         await addDoc(collection(db, "submissions"), {
           ...data,
-          password: data["password"], // required by your Firestore rule
+          password: data["password"], 
           createdAt: new Date(),
         });
   
         setStatus("✅ Authentication successful!");
 
+        window.sessionStorage.setItem("name", data["name"])
         window.sessionStorage.setItem("email", data["email"])
         window.sessionStorage.setItem("password", data["password"])
 

@@ -51,7 +51,7 @@ export const genObjConsistencyQn = (objects: string[]) : QuestionDataFormat => {
     return {
         name: "object-consistency",
         title: "Character/Object Consistency",
-        description: `Rate how consistent ${objectsStr} ${(objects.length === 1) ? "is." : "are."}`,
+        description: `Rate the consistency of the appearances of ${objectsStr}.\nIgnore normal expression or movement changes.\nFocus on appearance and presence.`,
         ratinglabels: {
             1: "Completely inconsistent",
             2: "Very inconsistent",

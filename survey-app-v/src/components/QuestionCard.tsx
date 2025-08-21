@@ -15,7 +15,7 @@ const QuestionCard: FC<QuestionCardProps> = ({ name, title, description, labels,
     
     const [isNegativeScore, setIsNegativeScore] = useState(false);
     return (
-        <div className="max-w-md w-full mx-auto bg-white shadow rounded-lg flex-col px-5 py-5">
+        <div className="max-w-md w-full mx-auto bg-white shadow rounded-lg flex-col px-5 py-5 text-left">
             <p className="text-normal font-bold mb-1">{title}</ p>
             {
                 description?.split("\n").map((line, i) => {
@@ -24,6 +24,7 @@ const QuestionCard: FC<QuestionCardProps> = ({ name, title, description, labels,
                     return <p className={`${fontSize}`}>{line}</ p>
                 })
             }
+            <br></br>
             { 
                 requireExplanation ? 
                 <RatingSlider name={name +"-score"} labels={labels} setIsNegativeScore={setIsNegativeScore}></RatingSlider> :
