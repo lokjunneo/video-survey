@@ -4,12 +4,14 @@ import AuthForm from "./components/AuthForm"
 import SurveyForm from "./components/SurveyForm"
 import VideoPlayer from "./components/VideoPlayer"
 import { surveyForms } from './constants/forms';
+import { Instructions } from './components/Instructions';
 
 function RoutingElement () {
   const { idParam } = useParams()
   if (idParam) {
     let id = parseInt(idParam)
     if (!isNaN(parseInt(idParam))){
+      if (id === 0) return <Instructions />
       id = id-1
       return <div className='w-full min-h-screen bg-gray-50 flex'>
               <div className='w-3/5 sticky top-0 left-0 h-screen max-h-full flex items-center justify-center p-8'>
@@ -32,7 +34,7 @@ function App() {
               <RoutingElement />
             }>
             </Route>
-            <Route path="*" element={<Navigate to="1" replace />}></Route>
+            <Route path="*" element={<Navigate to="0" replace />}></Route>
           </Routes>
         </HashRouter> : 
         <HashRouter>

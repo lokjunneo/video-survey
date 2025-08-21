@@ -33,7 +33,7 @@ export default function AuthForm() {
         window.sessionStorage.setItem("email", data["email"])
         window.sessionStorage.setItem("password", data["password"])
 
-        navigate("1");
+        navigate("/0");
         window.location.reload()
         form.reset();
       } catch (err) {
