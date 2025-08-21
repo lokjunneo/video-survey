@@ -51,7 +51,7 @@ const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="",qns=[]}:
   
         setStatus("✅ Submission successful! Moving on...");
 
-        navigate(`/video-survey/${newId.current}`);
+        navigate(`/${newId.current}`);
 
         window.location.reload();
 

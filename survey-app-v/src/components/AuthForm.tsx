@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase'; // Import your initialized db instance
-
-const baseURL = import.meta.env.BASE_URL;
+import { useNavigate } from 'react-router-dom';
 
 export default function AuthForm() {
     const [status, setStatus] = useState<string>("");
+    const navigate = useNavigate();
   
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -33,7 +33,8 @@ export default function AuthForm() {
         window.sessionStorage.setItem("email", data["email"])
         window.sessionStorage.setItem("password", data["password"])
 
-        window.location.href = baseURL + "1";
+        navigate("1");
+        window.location.reload()
         form.reset();
       } catch (err) {
         setStatus("❌ Wrong password or invalid input.");

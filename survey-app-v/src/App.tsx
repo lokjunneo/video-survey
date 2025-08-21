@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes, useParams } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes, useParams } from 'react-router-dom';
 import './App.css'
 import AuthForm from "./components/AuthForm"
 import SurveyForm from "./components/SurveyForm"
@@ -26,15 +26,22 @@ function App() {
   return (
     <div className="App">
       { window.sessionStorage.getItem("password") ? 
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
-            <Route path="/video-survey/:idParam" element={
+            <Route path="/:idParam" element={
               <RoutingElement />
             }>
             </Route>
-            <Route path="/video-survey/" element={<Navigate to="/video-survey/1" replace />}></Route>
+            <Route path="*" element={<Navigate to="1" replace />}></Route>
           </Routes>
-        </BrowserRouter> : <AuthForm></AuthForm> }
+        </HashRouter> : 
+        <HashRouter>
+          <Routes>
+            <Route path="/" element={<AuthForm />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+          
+        </HashRouter> }
       
     </div>
   );
