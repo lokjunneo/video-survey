@@ -5,7 +5,7 @@ import { genObjConsistencyQn, naturalnessofMovementsQn } from "./questions";
 export const surveyForms: SurveyDataFormat[] = [
     {
         vidDesc: "The veteran walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",
-        vidUrl: "videos/Veteran/Apple.mp4",
+        vidUrl: "videos/Veteran/Apple",
         qns: [
             naturalnessofMovementsQn,
             genObjConsistencyQn(["the veteran","his uniform"])
@@ -13,7 +13,7 @@ export const surveyForms: SurveyDataFormat[] = [
     },
     {
         vidDesc: "The veteran walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",
-        vidUrl: "videos/Veteran/Banana.mp4",
+        vidUrl: "videos/Veteran/Banana",
         qns: [
             naturalnessofMovementsQn,
             genObjConsistencyQn(["the veteran","his uniform"])
