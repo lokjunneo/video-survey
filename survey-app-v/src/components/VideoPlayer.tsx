@@ -14,6 +14,8 @@ interface VideoPlayerProps extends HTMLAttributes<HTMLDivElement> {
             <i className="max-w-full break-words">{description}</i>
           </div>
           <video
+              autoPlay
+              loop
               controls
               className="rounded shadow-lg max-h-9/10 max-w-full"
           >
