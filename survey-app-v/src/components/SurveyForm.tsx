@@ -5,6 +5,7 @@ import { db } from '../utils/firebase'; // Import your initialized db instance
 import QuestionCard from './QuestionCard';
 import type { QuestionDataFormat } from '@/utils/questiondataformat';
 import { useNavigate, useParams } from 'react-router-dom';
+import AdditionalInput from './AdditionalInputCard';
 
 interface SurveyFormProps extends HTMLAttributes<HTMLDivElement> {  
   vId: string; // optional, can override default "rating"
@@ -85,6 +86,10 @@ const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="",qns=[]}:
                 </div>
             })
           }
+
+          <AdditionalInput />
+
+          <br />
           
           <div className="flex flex-col">
             <button
