@@ -1,4 +1,4 @@
-import { HashRouter, Navigate, Route, Routes, useParams } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom';
 import './App.css'
 import AuthForm from "./components/AuthForm"
 import SurveyForm from "./components/SurveyForm"
@@ -6,6 +6,7 @@ import VideoPlayer from "./components/VideoPlayer"
 import { surveyForms } from './constants/forms';
 import { Instructions } from './components/Instructions';
 import { Completion } from './components/Completion';
+import { useEffect, useRef } from 'react';
 
 function RoutingElement () {
   const { idParam } = useParams()
@@ -23,7 +24,26 @@ function RoutingElement () {
             </div>
     }
   }
+  return <Navigate to="/" />
+}
+
+function RefreshElement() {
+  const location = useLocation();
+  const currPathname = useRef("")
+
+  useEffect(() => {
+    console.log(location)
+    if (currPathname.current === "") {
+      currPathname.current = location.pathname
+    }
+    else if (currPathname.current.includes("/") && currPathname.current !== location.pathname) {
+      console.log('Location changed');
+      window.location.reload()
+    }
+  }, [location]);
+
   return <></>
+
 }
 
 function App() {
@@ -33,7 +53,10 @@ function App() {
         <HashRouter>
           <Routes>
             <Route path="/:idParam" element={
-              <RoutingElement />
+              <div>
+                <RefreshElement />
+                <RoutingElement />
+              </div>
             }>
             </Route>
             <Route path="*" element={<Navigate to="0" replace />}></Route>
