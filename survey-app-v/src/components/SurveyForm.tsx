@@ -69,7 +69,7 @@ const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="",qns=[]}:
         
         <div className='w-auto inline-flex flex-col'>
           
-        <form onSubmit={(e) => {e.preventDefault(); handleSubmit(e)}}>
+        <form onSubmit={(e) => {handleSubmit(e)}}>
           {
             qns.map((qn) => {
               return <div>

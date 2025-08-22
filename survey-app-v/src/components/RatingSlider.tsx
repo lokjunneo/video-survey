@@ -1,5 +1,6 @@
 import { forwardRef, useState, type HTMLAttributes } from "react";
 import type { RatingLabelMap } from "../utils/ratinglabels";
+import { inputHandleEnter } from "../utils/inputhandler";
 
 interface RatingSliderProps extends HTMLAttributes<HTMLDivElement>{
 //   value: number;
@@ -46,6 +47,7 @@ const RatingSlider = forwardRef<HTMLInputElement, RatingSliderProps>(
                       if (newValue < 5) {setIsNegativeScore?.(true)}
                       else {setIsNegativeScore?.(false)}
                     }}
+                    onKeyDown={inputHandleEnter}
                     className="w-4/6 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500"
                     required
                 />
