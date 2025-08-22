@@ -9,10 +9,11 @@ import AdditionalInput from './AdditionalInputCard';
 
 interface SurveyFormProps extends HTMLAttributes<HTMLDivElement> {  
   vId: string; // optional, can override default "rating"
+  isExample?: boolean;
   qns?: QuestionDataFormat[]
 }
 
-const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="",qns=[]}: SurveyFormProps) => {
+const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="", isExample=false,qns=[]}: SurveyFormProps) => {
     const [status, setStatus] = useState<string>("");
     const { idParam } = useParams()
     const navigate = useNavigate()
@@ -77,7 +78,8 @@ const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="",qns=[]}:
                 <QuestionCard 
                   name={qn.name}
                   title={qn.title} 
-                  description={qn.description} 
+                  description={qn.description}
+                  additionalExplanation={qn.additionalExplanation} 
                   labels={qn.ratinglabels}
                   />
 
@@ -86,8 +88,9 @@ const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="",qns=[]}:
                 </div>
             })
           }
-
-          <AdditionalInput />
+          {
+            !isExample && <AdditionalInput />
+          }
 
           <br />
           

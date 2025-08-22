@@ -3,33 +3,47 @@ import { useState, type FC, type HTMLAttributes } from "react";
 import type { RatingLabelMap } from "../utils/ratinglabels";
 import RatingSlider from "./RatingSlider"
 import { inputHandleEnter } from "../utils/inputhandler";
+import QuestionMarkTooltip from "./QuestionMarkTooltip";
 
 interface QuestionCardProps extends HTMLAttributes<HTMLDivElement>{
     title?: string,
     description?: string,
     name?: string, // form field name
     labels?: RatingLabelMap,
+    additionalExplanation?: string,
     requireExplanation?: Boolean
 }
 
-const QuestionCard: FC<QuestionCardProps> = ({ name, title, description, labels, requireExplanation = true }) => {
+const QuestionCard: FC<QuestionCardProps> = ({ name, title, description, labels, additionalExplanation, requireExplanation = true }) => {
     
     const [isNegativeScore, setIsNegativeScore] = useState(false);
     return (
         <div className="max-w-md w-full mx-auto bg-white shadow rounded-lg flex-col px-5 py-5 text-left">
-            <p className="text-normal font-bold mb-1">{title}</ p>
+            <div className="flex flex-row">
+                <p className="text-normal font-bold mb-1">{title}</ p>
+                <p className="">&nbsp;&nbsp;</p>
+                {
+                    additionalExplanation && <QuestionMarkTooltip explanation={additionalExplanation}  />
+                }
+                
+            </div>
+            
             {
                 description?.split("\n").map((line, i) => {
                     let fontSize = "text-base"
-                    if (i > 0) fontSize += " italic"
+                    if (i > 0 && labels) fontSize += " italic"
                     return <p className={`${fontSize}`}>{line}</ p>
                 })
             }
+
             <br></br>
             { 
-                requireExplanation ? 
-                <RatingSlider name={name +"-score"} labels={labels} setIsNegativeScore={setIsNegativeScore}></RatingSlider> :
-                <RatingSlider name={name +"-score"} labels={labels}></RatingSlider>
+                labels ?
+                    requireExplanation ? 
+                    <RatingSlider name={name +"-score"} labels={labels} setIsNegativeScore={setIsNegativeScore}></RatingSlider> :
+                    <RatingSlider name={name +"-score"} labels={labels}></RatingSlider> 
+                    :
+                <></>
             }
             {
                 isNegativeScore ?

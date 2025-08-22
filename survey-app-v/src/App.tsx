@@ -7,6 +7,7 @@ import { surveyForms } from './constants/forms';
 import { Instructions } from './components/Instructions';
 import { Completion } from './components/Completion';
 import { useEffect, useRef } from 'react';
+import { FormType } from './constants/FormTypes';
 
 function RoutingElement () {
   const { idParam } = useParams()
@@ -20,7 +21,10 @@ function RoutingElement () {
               <div className='w-3/5 sticky top-0 left-0 h-screen max-h-full flex items-center justify-center p-8'>
                 <VideoPlayer src={surveyForms[id].vidUrl} description={surveyForms[id].vidDesc}></VideoPlayer>
               </div>
-              <SurveyForm className="w-2/5 ml-auto p-10" vId={surveyForms[id].vidUrl} qns={surveyForms[id].qns}></SurveyForm> 
+              <SurveyForm className="w-2/5 ml-auto p-10" 
+                vId={surveyForms[id].vidUrl} 
+                qns={surveyForms[id].qns} 
+                isExample={surveyForms[id].formType === FormType.Example}></SurveyForm> 
             </div>
     }
   }

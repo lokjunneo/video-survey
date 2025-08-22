@@ -1,0 +1,5 @@
+export enum QuestionCardTypes {
+    INSTRUCTION = "INSTRUCTION",
+    COMMENT_ONLY = "COMMENT_ONLY",
+    RATING_ONLY = "RATING_ONLY"
+}

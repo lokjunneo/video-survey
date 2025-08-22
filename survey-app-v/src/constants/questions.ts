@@ -1,5 +1,11 @@
 import type { QuestionDataFormat } from "@/utils/questiondataformat";
 
+export const coherenceExample: QuestionDataFormat = {
+    name: "coherence-example",
+    title: "Coherence example",
+    description: "This is an example question on coherence.\nNotice how the woman's cup randomly flew up and transformed, which is completely random and irrelevant to the video description.\nHence, this video should be given a low coherence score.",
+}
+
 export const naturalnessofMovementsQn: QuestionDataFormat = {
     name: "movement-natural",
     title: "Naturalness of Movements",
@@ -10,6 +16,20 @@ export const naturalnessofMovementsQn: QuestionDataFormat = {
         3: "Somewhat natural",
         4: "Very natural",
         5: "Completely natural"
+    }
+}
+
+export const coherenceQn: QuestionDataFormat = {
+    name: "coherence",
+    title: "Coherence of Video",
+    description: "Rate how coherent the video is.\nLook out for areas in videos that don't make sense, and not relevant to the video description.",
+    additionalExplanation: "Examples of low coherence: \nRandomly floating objects \nItems randomly transforming \nObjects randomly disappearing/reappearing.",
+    ratinglabels: {
+        1: "Made by a drunk",
+        2: "Very incoherent. A fever dream.",
+        3: "Somewhat coherent",
+        4: "Mostly coherent",
+        5: "Completely coherent"
     }
 }
 
