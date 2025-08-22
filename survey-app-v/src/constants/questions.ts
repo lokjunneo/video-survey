@@ -2,8 +2,16 @@ import type { QuestionDataFormat } from "@/utils/questiondataformat";
 
 export const coherenceExample: QuestionDataFormat = {
     name: "coherence-example",
-    title: "Coherence example",
+    title: "Coherence Example",
     description: "This is an example question on coherence.\nNotice how the woman's cup randomly flew up and transformed, which is completely random and irrelevant to the video description.\nHence, this video should be given a low coherence score.",
+}
+
+export const genExampleGuide = (name: string, title: string, description: string): QuestionDataFormat => {
+    return {
+        name: name,
+        title: title,
+        description: description
+    }
 }
 
 export const naturalnessofMovementsQn: QuestionDataFormat = {
@@ -83,12 +91,12 @@ export const genObjConsistencyQn = (objects: string[]) : QuestionDataFormat => {
 
 }
 
-export const genConceptAlignmentQn = (prompt: string) : QuestionDataFormat => {
+export const genScenarioFulfilment = (prompt: string) : QuestionDataFormat => {
 
     return {
-        name: "concept-alignment",
-        title: "Concept Alignment",
-        description: `Rate how well the video matches the given concept:\n${prompt}`,
+        name: "scenario-fulfilment",
+        title: "Scenario Fulfilment",
+        description: `Rate how well the video fulfils the video description:\n${prompt}`,
         ratinglabels: {
             1: "Not matching at all",
             2: "Barely matching",
