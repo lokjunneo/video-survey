@@ -5,6 +5,7 @@ import SurveyForm from "./components/SurveyForm"
 import VideoPlayer from "./components/VideoPlayer"
 import { surveyForms } from './constants/forms';
 import { Instructions } from './components/Instructions';
+import { Completion } from './components/Completion';
 
 function RoutingElement () {
   const { idParam } = useParams()
@@ -12,6 +13,7 @@ function RoutingElement () {
     let id = parseInt(idParam)
     if (!isNaN(parseInt(idParam))){
       if (id === 0) return <Instructions />
+      if (id > surveyForms.length) return <Completion />
       id = id-1
       return <div className='w-full min-h-screen bg-gray-50 flex'>
               <div className='w-3/5 sticky top-0 left-0 h-screen max-h-full flex items-center justify-center p-8'>
