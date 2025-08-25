@@ -8,6 +8,7 @@ import { Instructions } from './components/Instructions';
 import { Completion } from './components/Completion';
 import { useEffect, useRef } from 'react';
 import { FormType } from './constants/FormTypes';
+// import VideoThumbnail from './components/VideoThumbnail';
 
 function RoutingElement () {
   const { idParam } = useParams()
@@ -18,8 +19,14 @@ function RoutingElement () {
       if (id > surveyForms.length) return <Completion />
       id = id-1
       return <div className='w-full min-h-screen bg-gray-50 flex'>
-              <div className='w-3/5 sticky top-0 left-0 h-screen max-h-full flex items-center justify-center p-8'>
+              <div className='w-3/5 sticky top-0 left-0 h-screen max-h-full flex flex-col items-center justify-center p-8'>
                 <VideoPlayer src={surveyForms[id].vidUrl} description={surveyForms[id].vidDesc}></VideoPlayer>
+                {
+                  // surveyForms[id].qns.some(item => item.name === "object-consistency") ? 
+                  //   <VideoThumbnail src={surveyForms[id].vidUrl}></VideoThumbnail> 
+                  // :
+                  // <></>
+                }
               </div>
               <SurveyForm className="w-2/5 ml-auto p-10" 
                 vId={surveyForms[id].vidUrl} 
