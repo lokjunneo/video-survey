@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@tailwindcss/vite": "^4.1.12",
     "class-variance-authority": "^0.7.1",
     "firebase": "^12.1.0",

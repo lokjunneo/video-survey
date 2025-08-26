@@ -9,7 +9,7 @@ interface VideoPlayerProps extends HTMLAttributes<HTMLDivElement> {
     // const currentId = idParam ? parseInt(idParam, 10) : -1;
 
     return (
-      <div className='flex-1 flex overflow-hidden w-full h-full items-center justify-center'>
+      <div className='flex-1 flex overflow-hidden w-full items-center justify-center'>
         <video
             autoPlay
             loop

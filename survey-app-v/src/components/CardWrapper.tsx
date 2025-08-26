@@ -1,8 +1,8 @@
 import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const wrapperCardStyles = cva(
-  "rounded-lg", // base classes
+export const wrapperCardStyles = cva(
+  "", // base classes
   {
     variants: {
       padding: {
@@ -16,16 +16,22 @@ const wrapperCardStyles = cva(
       color: {
         white: "bg-white",
         black: "bg-black",
+        none: ""
       },
+      rounded: {
+        large: "rounded-lg",
+        none: ""
+      }
     },
     defaultVariants: {
         //   padding: "medium",
       color: "white",
+      rounded: "large"
     },
   }
 );
 
-interface WrapperCardProps extends VariantProps<typeof wrapperCardStyles> {
+export interface WrapperCardProps extends VariantProps<typeof wrapperCardStyles> {
   children: React.ReactNode;
   className?: string;
 }
@@ -35,9 +41,10 @@ const WrapperCard: React.FC<WrapperCardProps> = ({
   className,
   padding,
   color,
+  rounded
 }) => {
   return (
-    <div className={wrapperCardStyles({ padding, color, className })}>
+    <div className={wrapperCardStyles({ padding, color, rounded, className })}>
       {children}
     </div>
   );
