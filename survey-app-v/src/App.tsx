@@ -26,7 +26,13 @@ function RoutingElement () {
       id = id-1
 
       return <div className='w-full min-h-screen bg-gray-50 flex'>
-              <div className='w-3/5 sticky top-0 left-0 h-screen max-h-full flex flex-col items-center justify-center p-16'>
+                <SurveyForm className="w-2/5 mr-auto p-8" 
+                  vId={surveyForms[id].vidUrl} 
+                  qns={surveyForms[id].qns} 
+                  isExample={surveyForms[id].formType === FormType.Example}>
+                </SurveyForm> 
+              <div className='w-3/5 sticky top-0 right-0 h-screen max-h-full flex flex-col items-center justify-center p-16'>
+               <div className='flex flex-col max-h-full'>
 
                   <div className='w-full' onClick={() => {setCollapseDesc(!collapseDesc)}}>
                     <WrapperCard className='w-full flex-row flex' padding={"small"}>
@@ -35,14 +41,14 @@ function RoutingElement () {
                     </WrapperCard>
                   </div>
                   {
-                    !collapseDesc ?
-                    <WrapperCard className='w-full transition-all duration-300 ease-in-out' padding={"small"} rounded={"none"}>
+                    // !collapseDesc ?
+                    // <WrapperCard className='w-full transition-all duration-300 ease-in-out' padding={"small"} rounded={"none"}>
 
-                        <i className="max-w-full break-words">{surveyForms[id].vidDesc}</i> 
+                    //     <i className="max-w-full break-words">{surveyForms[id].vidDesc}</i> 
                         
 
-                    </WrapperCard>
-                    : <></>
+                    // </WrapperCard>
+                    // : <></>
                   }
                   <WrapperCard className={`w-full flex ${!showInitial ? "": "flex-1"} flex-col overflow-hidden items-center justify-center`}
                     color="none"
@@ -67,12 +73,10 @@ function RoutingElement () {
                     <></>
                   }
 
-              </div>
+                </div>
 
-              <SurveyForm className="w-2/5 ml-auto p-4" 
-                vId={surveyForms[id].vidUrl} 
-                qns={surveyForms[id].qns} 
-                isExample={surveyForms[id].formType === FormType.Example}></SurveyForm> 
+              </div>
+              
             </div>
     }
   }
