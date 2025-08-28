@@ -31,7 +31,7 @@ const QuestionCard: FC<QuestionCardProps> = ({ name, title, description, labels,
             {
                 description?.split("\n").map((line, i) => {
                     let fontSize = "text-base"
-                    if (i > 0 && labels) fontSize += " italic"
+                    if (i > 0 && labels) fontSize += " text-gray-500"
                     return <p className={`${fontSize}`}>{line}</ p>
                 })
             }

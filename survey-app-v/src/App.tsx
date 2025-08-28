@@ -9,10 +9,10 @@ import { useEffect, useRef } from 'react';
 import { FormType } from './constants/FormTypes';
 
 import VideoModule from './components/VideoModule';
+import { SurveyContextProvider } from './context/VideoContextProvider';
 
 function RoutingElement () {
   const { idParam } = useParams()
-  const currentId = idParam ? parseInt(idParam, 10) : -1;
 
   if (idParam) {
     let id = parseInt(idParam)
@@ -21,19 +21,21 @@ function RoutingElement () {
       if (id > surveyForms.length) return <Completion />
       id = id-1
 
-      return <div className='w-full min-h-screen bg-gray-50 flex'>
-                <SurveyForm className="w-2/5 mr-auto p-8" 
-                  vId={surveyForms[id].vidUrl} 
-                  qns={surveyForms[id].qns} 
-                  isExample={surveyForms[id].formType === FormType.Example}>
-                </SurveyForm> 
-              <div className='w-3/5 sticky top-0 right-0 h-screen max-h-full flex flex-col items-center justify-center p-16'>
+      return <SurveyContextProvider>
+                <div className='w-full min-h-screen bg-gray-50 flex'>
+                  <SurveyForm className="w-2/5 mr-auto p-8" 
+                    vId={surveyForms[id].vidUrl} 
+                    qns={surveyForms[id].qns} 
+                    isExample={surveyForms[id].formType === FormType.Example}>
+                  </SurveyForm> 
+                  <div className='w-3/5 sticky top-0 right-0 h-screen max-h-full flex flex-col items-center justify-center p-16'>
               
-                <VideoModule vidUrl={surveyForms[id].vidUrl} displayInitialFrame={surveyForms[id].qns.some(item => item.name === "object-consistency")}></VideoModule>
+                    <VideoModule vidUrl={surveyForms[id].vidUrl} displayInitialFrame={surveyForms[id].qns.some(item => item.name === "object-consistency")}></VideoModule>
               
-              </div>
+                  </div>
               
-            </div>
+                </div>
+            </SurveyContextProvider>
     }
   }
   return <Navigate to="/" />
