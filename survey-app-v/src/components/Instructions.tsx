@@ -20,7 +20,7 @@ export const Instructions = () => {
                 navigate("/1")
             }}
           >
-            Submit
+            Next
           </button>
     </div>
 }
