@@ -1,9 +1,11 @@
 
-import { useState, type FC, type HTMLAttributes } from "react";
+import { useContext, useState, type FC, type HTMLAttributes } from "react";
 import type { RatingLabelMap } from "../utils/ratinglabels";
 import RatingSlider from "./RatingSlider"
 import { inputHandleEnter } from "../utils/inputhandler";
 import QuestionMarkTooltip from "./QuestionMarkTooltip";
+import { SurveyActionType } from "@/reducer/SurveyReducer";
+import { SurveyContext } from "@/context/VideoContextProvider";
 
 interface QuestionCardProps extends HTMLAttributes<HTMLDivElement>{
     title?: string,
@@ -17,6 +19,10 @@ interface QuestionCardProps extends HTMLAttributes<HTMLDivElement>{
 const QuestionCard: FC<QuestionCardProps> = ({ name, title, description, labels, additionalExplanation, requireExplanation = true }) => {
     
     const [isNegativeScore, setIsNegativeScore] = useState(false);
+    const context = useContext(SurveyContext);
+    if (!context) throw new Error("Must be used inside SurveyProvider");
+
+    const { dispatch } = context;
     return (
         <div className="max-w-md w-full mx-auto bg-white shadow rounded-lg flex-col px-5 py-5 text-left">
             <div className="flex flex-row">
@@ -34,6 +40,13 @@ const QuestionCard: FC<QuestionCardProps> = ({ name, title, description, labels,
                     if (i > 0 && labels) fontSize += " text-gray-500"
                     return <p className={`${fontSize}`}>{line}</ p>
                 })
+            }
+            {
+                // lazy
+                name === "object-consistency" ? 
+                    <button type="button" onClick={() => {dispatch({
+                            type: SurveyActionType.TOGGLE_INITIAL_FRAME_VISIBILITY
+                    })}}> Show initial frame </button> : <></>
             }
 
             <br></br>

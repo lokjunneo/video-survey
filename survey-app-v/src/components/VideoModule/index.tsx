@@ -1,9 +1,10 @@
-import { useState, type FC, type HTMLAttributes } from "react";
+import { useContext, useState, type FC, type HTMLAttributes } from "react";
 import WrapperCard from "../CardWrapper";
 import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import { useParams } from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
 import VideoThumbnail from "./VideoThumbnail";
+import { SurveyContext } from "@/context/VideoContextProvider";
 
 interface VideoModuleProps extends HTMLAttributes<HTMLDivElement> {
     vidUrl: string; // optional, default video source
@@ -15,7 +16,8 @@ const VideoModule: FC<VideoModuleProps> = ({ vidUrl, displayInitialFrame  }) => 
     const { idParam } = useParams()
     const currentId = idParam ? parseInt(idParam, 10) : -1;
     const [collapseDesc, setCollapseDesc] = useState(false);
-    const [showInitial, setShowInitial] = useState(false)
+    // const [showInitial, setShowInitial] = useState(false)
+    const surveyContext = useContext(SurveyContext);
 
     return <div className='flex flex-col max-h-full'>
 
@@ -35,12 +37,12 @@ const VideoModule: FC<VideoModuleProps> = ({ vidUrl, displayInitialFrame  }) => 
                     // </WrapperCard>
                     // : <></>
                   }
-                  <WrapperCard className={`w-full flex ${!showInitial ? "": "flex-1"} flex-col overflow-hidden items-center justify-center`}
+                  <WrapperCard className={`w-full flex ${!surveyContext?.state.showInitialFrame ? "": "flex-1"} flex-col overflow-hidden items-center justify-center`}
                     color="none"
                     rounded={"none"}>
                     <VideoPlayer src={vidUrl}></VideoPlayer>
                   </WrapperCard>
-                  {
+                  {/* {
                     displayInitialFrame ? 
                     <div className='w-full' onClick={() => {setShowInitial(!showInitial)}}>
                       <WrapperCard className='w-full' padding={"small"}>
@@ -48,9 +50,9 @@ const VideoModule: FC<VideoModuleProps> = ({ vidUrl, displayInitialFrame  }) => 
                       </WrapperCard> 
                     </div> :
                     <></>
-                  }
+                  } */}
                   {
-                    displayInitialFrame && showInitial ? 
+                    displayInitialFrame && surveyContext?.state.showInitialFrame ? 
                     <div className='flex-1 overflow-hidden w-full'>
                       <VideoThumbnail src={vidUrl}></VideoThumbnail> 
                     </div>
