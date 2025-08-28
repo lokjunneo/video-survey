@@ -1,11 +1,12 @@
 
-import { useContext, useState, type FC, type HTMLAttributes } from "react";
+import { useState, type FC, type HTMLAttributes } from "react";
 import type { RatingLabelMap } from "../utils/ratinglabels";
 import RatingSlider from "./RatingSlider"
 import { inputHandleEnter } from "../utils/inputhandler";
 import QuestionMarkTooltip from "./QuestionMarkTooltip";
-import { SurveyActionType } from "@/reducer/SurveyReducer";
-import { SurveyContext } from "@/context/VideoContextProvider";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "@/redux/store";
+import { setInitialFrameVisibility } from "@/redux/surveySlice";
 
 interface QuestionCardProps extends HTMLAttributes<HTMLDivElement>{
     title?: string,
@@ -19,10 +20,9 @@ interface QuestionCardProps extends HTMLAttributes<HTMLDivElement>{
 const QuestionCard: FC<QuestionCardProps> = ({ name, title, description, labels, additionalExplanation, requireExplanation = true }) => {
     
     const [isNegativeScore, setIsNegativeScore] = useState(false);
-    const context = useContext(SurveyContext);
-    if (!context) throw new Error("Must be used inside SurveyProvider");
+    const showInitialFrame = useSelector((state: RootState) => state.survey.showInitialFrame);
+    const dispatch = useDispatch<AppDispatch>();
 
-    const { dispatch } = context;
     return (
         <div className="max-w-md w-full mx-auto bg-white shadow rounded-lg flex-col px-5 py-5 text-left">
             <div className="flex flex-row">
@@ -44,9 +44,15 @@ const QuestionCard: FC<QuestionCardProps> = ({ name, title, description, labels,
             {
                 // lazy
                 name === "object-consistency" ? 
-                    <button type="button" onClick={() => {dispatch({
-                            type: SurveyActionType.TOGGLE_INITIAL_FRAME_VISIBILITY
-                    })}}> Show initial frame </button> : <></>
+                    <div className="w-full flex flex-col">
+                        <br />
+                        <button type="button" 
+                            className="self-center mx-auto"
+                            onClick={() => {dispatch(setInitialFrameVisibility(!showInitialFrame))}}> 
+                            {`${showInitialFrame ? "Hide" : "Show"} initial video frame`} 
+                        </button>
+                        <br />
+                    </div> : <></>
             }
 
             <br></br>

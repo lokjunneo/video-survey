@@ -9,7 +9,9 @@ import { useEffect, useRef } from 'react';
 import { FormType } from './constants/FormTypes';
 
 import VideoModule from './components/VideoModule';
-import { SurveyContextProvider } from './context/VideoContextProvider';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+
 
 function RoutingElement () {
   const { idParam } = useParams()
@@ -21,7 +23,7 @@ function RoutingElement () {
       if (id > surveyForms.length) return <Completion />
       id = id-1
 
-      return <SurveyContextProvider>
+      return <Provider store={store}>
                 <div className='w-full min-h-screen bg-gray-50 flex'>
                   <SurveyForm className="w-2/5 mr-auto p-8" 
                     vId={surveyForms[id].vidUrl} 
@@ -35,7 +37,7 @@ function RoutingElement () {
                   </div>
               
                 </div>
-            </SurveyContextProvider>
+            </Provider>
     }
   }
   return <Navigate to="/" />
