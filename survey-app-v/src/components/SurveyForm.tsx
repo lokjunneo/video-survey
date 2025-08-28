@@ -80,6 +80,7 @@ const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="", isExamp
                   title={qn.title} 
                   description={qn.description}
                   additionalExplanation={qn.additionalExplanation} 
+                  requireExplanation={qn.requireExplanation !== undefined ? qn.requireExplanation : true}
                   labels={qn.ratinglabels}
                   />
 

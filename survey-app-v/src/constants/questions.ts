@@ -24,7 +24,8 @@ export const naturalnessofMovementsQn: QuestionDataFormat = {
         3: "Somewhat natural",
         4: "Very natural",
         5: "Completely natural"
-    }
+    },
+    requireExplanation: false
 }
 
 export const coherenceQn: QuestionDataFormat = {
@@ -79,14 +80,14 @@ export const genObjConsistencyQn = (objects: string[]) : QuestionDataFormat => {
     return {
         name: "object-consistency",
         title: "Character/Object Consistency",
-        description: `Rate the consistency of the appearances of ${objectsStr}.\nIgnore normal expression or movement changes.\nFocus on appearance and presence.`,
+        description: `Rate the consistency of the appearances of ${objectsStr}.\n%%Ignore normal expression or movement changes.%%\n%%Focus on appearance and presence.%%`,
         ratinglabels: {
             1: "Completely inconsistent",
             2: "Very inconsistent",
             3: "Somewhat consistent",
             4: "Mostly consistent",
             5: "Completely consistent"
-        }
+        },
     }
 
 }
