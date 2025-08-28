@@ -1,6 +1,5 @@
 import { useState, type FC, type HTMLAttributes } from "react";
 import WrapperCard from "../CardWrapper";
-import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import { useParams } from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
 import VideoThumbnail from "./VideoThumbnail";
