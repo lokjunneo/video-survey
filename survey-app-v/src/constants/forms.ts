@@ -4,6 +4,14 @@ import { FormType } from "./FormTypes";
 
 
 export const surveyForms: SurveyDataFormat[] = [
+
+    {
+        vidDesc: "First, we will go through a few example questions",
+        vidUrl: "Section 0: Example",
+        qns: [],
+        formType: FormType.SectionMarker
+    },
+
     {
         vidDesc: "The man and woman waves at the camera.",
         vidUrl: "videos/Examples/coherence-ex",
@@ -71,13 +79,30 @@ export const surveyForms: SurveyDataFormat[] = [
     //     formType: FormType.Example
     // },
 
+    {
+        vidDesc: `That's all the example questions we have. The survey will officially begin now.
+        In this section, the following scenario will be covered:
+        > A veteran does the following: 
+        > 1. walks left and exits the camera frame, 
+        > 2. walks back into the camera frame from the right, 
+        > 3. finally, stops at his original position.
+        > The camera does not move.`,
+        vidUrl: "Section 1  : Veteran",
+        qns: [],
+        formType: FormType.SectionMarker
+    },
     // Veteran
     {
         vidDesc: "The veteran walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",
         vidUrl: "videos/Veteran/Apple",
         qns: [
             genObjConsistencyQn(["the veteran","his uniform"]),
-            genScenarioFulfilment(`"A veteran walks left until he is completely out of view. Then, he walks back into view from the right side of the screen. Camera does not move."`)
+            genScenarioFulfilment(`
+                > A veteran does the following: 
+                > 1. walks left and exits the camera frame, 
+                > 2. walks back into the camera frame from the right, 
+                > 3. finally, stops at his original position.
+                > The camera does not move.`)
         ]
     },
     {
@@ -85,7 +110,12 @@ export const surveyForms: SurveyDataFormat[] = [
         vidUrl: "videos/Veteran/Apple-2",
         qns: [
             genObjConsistencyQn(["the veteran","his uniform"]),
-            genScenarioFulfilment(`"A veteran walks left until he is completely out of view. Then, he walks back into view from the right side of the screen. Camera does not move."`)
+            genScenarioFulfilment(`
+                > A veteran does the following: 
+                > 1. walks left and exits the camera frame, 
+                > 2. walks back into the camera frame from the right, 
+                > 3. finally, stops at his original position.
+                > The camera does not move.`)
         ]
     },
     {
@@ -93,8 +123,24 @@ export const surveyForms: SurveyDataFormat[] = [
         vidUrl: "videos/Veteran/Banana",
         qns: [
             genObjConsistencyQn(["the veteran","his uniform"]),
-            genScenarioFulfilment(`"A veteran walks left until he is completely out of view. Then, he walks back into view from the right side of the screen. Camera does not move."`)
+            genScenarioFulfilment(`
+                > A veteran does the following: 
+                > 1. walks left and exits the camera frame, 
+                > 2. walks back into the camera frame from the right, 
+                > 3. finally, stops at his original position.
+                > The camera does not move.`)
         ]
+    },
+
+    {
+        vidDesc: `In this section, the following scenario will be covered:
+        > A man and a woman does the following: 
+        > 1. lift their cups 
+        > 2. clink them together
+        > 3. take a sip of coffee`,
+        vidUrl: "Section 2: Cheers",
+        qns: [],
+        formType: FormType.SectionMarker
     },
 
     // Cheers
@@ -130,13 +176,30 @@ export const surveyForms: SurveyDataFormat[] = [
 
 
     // standee
+    
+    {
+        vidDesc: `In this section, the following scenario will be covered:
+        > 1. A cameraman, using a handheld camera, approaches a cardboard standee.
+        > (A handheld camera has a natural wobble to it.)
+        > 2. Suddenly, the standee comes to life! It starts walking towards the cameraman.
+        > 3. The cameraman starts to move backwards away from the standee, screen shaking greatly to reflect his anxiety.`,
+
+        vidUrl: "Section 3: SPF Standee",
+        qns: [],
+        formType: FormType.SectionMarker
+    },
+
     {
         vidDesc: "The standee comes to life and walks towards the camera.",
         vidUrl: "videos/Standee/V3-1D-2.mp4",
         qns: [
             naturalnessofMovementsQn,
             backgroundCoherenceQn,
-            genScenarioFulfilment(`"The standee comes to life and walks towards the camera."`)
+            genScenarioFulfilment(`
+                > 1. A cameraman, using a handheld camera, approaches a cardboard standee.
+                > (A handheld camera has a natural wobble to it.)
+                > 2. Suddenly, the standee comes to life! It starts walking towards the cameraman.
+                > 3. The cameraman starts to move backwards away from the standee, screen shaking greatly to reflect his anxiety.`)
         ]
     },
 
@@ -146,7 +209,11 @@ export const surveyForms: SurveyDataFormat[] = [
         qns: [
             naturalnessofMovementsQn,
             backgroundCoherenceQn,
-            genScenarioFulfilment(`"The standee comes to life and walks towards the camera."`)
+            genScenarioFulfilment(`
+                > 1. A cameraman, using a handheld camera, approaches a cardboard standee.
+                > (A handheld camera has a natural wobble to it.)
+                > 2. Suddenly, the standee comes to life! It starts walking towards the cameraman.
+                > 3. The cameraman starts to move backwards away from the standee, screen shaking greatly to reflect his anxiety.`)
         ]
     },
 
@@ -157,11 +224,23 @@ export const surveyForms: SurveyDataFormat[] = [
         qns: [
             naturalnessofMovementsQn,
             backgroundCoherenceQn,
-            genScenarioFulfilment(`"The standee comes to life and walks towards the camera."`)
+            genScenarioFulfilment(`
+                > 1. A cameraman, using a handheld camera, approaches a cardboard standee.
+                > (A handheld camera has a natural wobble to it.)
+                > 2. Suddenly, the standee comes to life! It starts walking towards the cameraman.
+                > 3. The cameraman starts to move backwards away from the standee, screen shaking greatly to reflect his anxiety.`)
         ]
     },
 
     // Streets
+    {
+        vidDesc: `In this section, the following scenario will be covered:
+        > The man runs in a hurry while on a call. Tracking shot. (camera follows the man)`,
+        vidUrl: "Section 4: Running Man",
+        qns: [],
+        formType: FormType.SectionMarker
+    },
+
     {
         vidDesc: "The man runs in a hurry while on a call. Tracking shot.",
         vidUrl: "videos/Streets/HL2P-2A-1.mp4",
@@ -169,7 +248,7 @@ export const surveyForms: SurveyDataFormat[] = [
             naturalnessofMovementsQn,
             backgroundCoherenceQn,
             genObjConsistencyQn(["the man"]),
-            genScenarioFulfilment(`"The man runs in a hurry while on a call. Tracking shot."`)
+            genScenarioFulfilment(`> The man runs in a hurry while on a call. Tracking shot. (camera follows the man).`)
         ]
     },
 
@@ -180,7 +259,7 @@ export const surveyForms: SurveyDataFormat[] = [
             naturalnessofMovementsQn,
             backgroundCoherenceQn,
             genObjConsistencyQn(["the man"]),
-            genScenarioFulfilment(`"The man runs in a hurry while on a call. Tracking shot."`)
+            genScenarioFulfilment(`> The man runs in a hurry while on a call. Tracking shot. (camera follows the man).`)
         ]
     },
 
@@ -191,7 +270,7 @@ export const surveyForms: SurveyDataFormat[] = [
             naturalnessofMovementsQn,
             backgroundCoherenceQn,
             genObjConsistencyQn(["the man"]),
-            genScenarioFulfilment(`"The man runs in a hurry while on a call. Tracking shot."`)
+            genScenarioFulfilment(`> The man runs in a hurry while on a call. Tracking shot. (camera follows the man).`)
         ]
     },
 
@@ -203,7 +282,7 @@ export const surveyForms: SurveyDataFormat[] = [
             naturalnessofMovementsQn,
             backgroundCoherenceQn,
             genObjConsistencyQn(["the man"]),
-            genScenarioFulfilment(`"The man runs in a hurry while on a call. Tracking shot."`)
+            genScenarioFulfilment(`> The man runs in a hurry while on a call. Tracking shot. (camera follows the man).`)
         ]
     },
 
@@ -214,7 +293,7 @@ export const surveyForms: SurveyDataFormat[] = [
             naturalnessofMovementsQn,
             backgroundCoherenceQn,
             genObjConsistencyQn(["the man"]),
-            genScenarioFulfilment(`"The man runs in a hurry while on a call. Tracking shot."`)
+            genScenarioFulfilment(`> The man runs in a hurry while on a call. Tracking shot. (camera follows the man).`)
         ]
     },
 

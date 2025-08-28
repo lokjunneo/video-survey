@@ -1,4 +1,5 @@
 export enum FormType {
     Normal,
-    Example
+    Example,
+    SectionMarker
 }
