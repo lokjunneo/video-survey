@@ -1,5 +1,4 @@
 import type { QuestionDataFormat } from "@/utils/questiondataformat";
-import type { RatingLabelMap } from "@/utils/ratinglabels";
 
 export const coherenceExample: QuestionDataFormat = {
     name: "coherence-example",
