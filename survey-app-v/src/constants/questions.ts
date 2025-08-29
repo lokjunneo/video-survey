@@ -1,4 +1,5 @@
 import type { QuestionDataFormat } from "@/utils/questiondataformat";
+import type { RatingLabelMap } from "@/utils/ratinglabels";
 
 export const coherenceExample: QuestionDataFormat = {
     name: "coherence-example",
@@ -132,6 +133,24 @@ export const genScenarioFulfilment = (prompt: string) : QuestionDataFormat => {
             3: "Somewhat matching",
             4: "Mostly matching",
             5: "Perfectly matching"
+        }    
+
+    }
+}
+
+
+export const genGenericQn = (name: string, title: string, description: string) : QuestionDataFormat => {
+
+    return {
+        name: name,
+        title: title,
+        description: description,
+        ratinglabels: {
+            1: "Poor",
+            2: "Weak",
+            3: "Moderate",
+            4: "Good",
+            5: "Excellent"
         }    
 
     }

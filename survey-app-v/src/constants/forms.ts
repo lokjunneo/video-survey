@@ -1,5 +1,5 @@
 import type { SurveyDataFormat } from "@/utils/surveydataformat";
-import { coherenceExample, coherenceQn, genScenarioFulfilment, genObjConsistencyQn, naturalnessofMovementsQn, genExampleGuide, backgroundCoherenceQn } from "./questions";
+import { coherenceExample, coherenceQn, genScenarioFulfilment, genObjConsistencyQn, naturalnessofMovementsQn, genExampleGuide, backgroundCoherenceQn, appealRatingQn, genGenericQn } from "./questions";
 import { FormType } from "./FormTypes";
 
 
@@ -296,6 +296,182 @@ export const surveyForms: SurveyDataFormat[] = [
             genScenarioFulfilment(`> The man runs in a hurry while on a call. Tracking shot. (camera follows the man).`)
         ]
     },
+
+    // Gummy bear
+    {
+        vidDesc: `In this section, the following scenario will be covered:
+        > Stop motion animation. 
+        > A detective gummy bear bends down to look closer at body. 
+        > Gummy bears in the background turn towards each other repeatedly,
+        > slightly bobbing their heads, as if talking amongst themselves.`,
+
+        vidUrl: "Section 5: Gummy bears",
+        qns: [],
+        formType: FormType.SectionMarker
+    },
+
+    {
+        vidDesc: "Gummy bears talk talk talk",
+        vidUrl: "videos/Streets/SD1P-2E-3.mp4",
+        qns: [
+            appealRatingQn,
+            coherenceQn,
+            genScenarioFulfilment(
+                `> Stop motion animation. 
+                > The detective gummy bear bends down to look closer at body. 
+                > Gummy bears in the background turn towards each other repeatedly,
+                > slightly bobbing their heads, as if talking amongst themselves.`)
+        ]
+    },
+
+    {
+        vidDesc: "Gummy bears talk talk talk",
+        vidUrl: "videos/Streets/SD1P-2G-3.mp4",
+        qns: [
+            appealRatingQn,
+            coherenceQn,
+            genScenarioFulfilment(
+                `> Stop motion animation. 
+                > The detective gummy bear bends down to look closer at body. 
+                > Gummy bears in the background turn towards each other repeatedly,
+                > slightly bobbing their heads, as if talking amongst themselves.`)
+        ]
+    },
+
+    {
+        vidDesc: "Gummy bears talk talk talk",
+        vidUrl: "videos/Streets/HL2P-2A-3.mp4",
+        qns: [
+            appealRatingQn,
+            coherenceQn,
+            genScenarioFulfilment(
+                `> Stop motion animation. 
+                > The detective gummy bear bends down to look closer at body. 
+                > Gummy bears in the background turn towards each other repeatedly,
+                > slightly bobbing their heads, as if talking amongst themselves.`)
+        ]
+    },
+
+    {
+        vidDesc: "Gummy bears talk talk talk",
+        vidUrl: "videos/Streets/HL2P-2F-1.mp4",
+        qns: [
+            appealRatingQn,
+            coherenceQn,
+            genScenarioFulfilment(
+                `
+                > Stop motion animation. 
+                > The detective gummy bear bends down to look closer at body. 
+                > Gummy bears in the background turn towards each other repeatedly,
+                > slightly bobbing their heads, as if talking amongst themselves.`)
+        ]
+    },
+
+    {
+        vidDesc: `For the following videos in this same section, there will be slight to the scenario:
+        > Stop motion animation. 
+        > The detective gummy bear bends down to look closer at body. 
+        > Gummy bears in the background turn towards each other **and fidgets repeatedly**, 
+        > as if talking amongst each other. Gummy bears do not disappear.
+        The gummy bears should now "fidget" to imitate talking, instead of bobbing their heads slightly.`,
+
+        vidUrl: "Section 5.5: Gummy bears",
+        qns: [],
+        formType: FormType.SectionMarker
+    },
+
+    {
+        vidDesc: "Gummy bears talk talk talk",
+        vidUrl: "videos/Streets/V3-1G-1.mp4",
+        qns: [
+            appealRatingQn,
+            coherenceQn,
+            genScenarioFulfilment(
+                `> Stop motion animation. 
+                > The detective gummy bear bends down to look closer at body. 
+                > Gummy bears in the background turn towards each other and fidgets repeatedly, 
+                > as if talking amongst each other. Gummy bears do not disappear.`)
+        ]
+    },
+
+    {
+        vidDesc: "Gummy bears talk talk talk",
+        vidUrl: "videos/Streets/V3-1G-2.mp4",
+        qns: [
+            appealRatingQn,
+            coherenceQn,
+            genScenarioFulfilment(
+                `> Stop motion animation. 
+                > The detective gummy bear bends down to look closer at body. 
+                > Gummy bears in the background turn towards each other and fidgets repeatedly, 
+                > as if talking amongst each other. Gummy bears do not disappear.`)
+        ]
+    },
+
+    // Cafe
+
+    {
+        vidDesc: `In this section, the following scenario will be covered:
+        > Fixed camera. A woman is seated in a cafe.
+        > Her expression gradually becomes terrified as the scene color tone transitions into eerie, creating a terrifying atmosphere.`,
+
+        vidUrl: "Section 6: Cafe",
+        qns: [],
+        formType: FormType.SectionMarker
+    },
+
+    {
+        vidDesc: "Freaky cafe",
+        vidUrl: "videos/Streets/V3-1B-1.mp4",
+        qns: [
+            genGenericQn("convey-emotion", "Effectiveness of Emotion", "How effectively does the character convey fear/terror in this scene?"),
+            genGenericQn("convey-eerie-bg", "Effectiveness of Background", "How effectively does the background convey a sense of eeriness in this scene?"),
+            coherenceQn,
+            genScenarioFulfilment(
+                ` Fixed camera. A woman is seated in a cafe.
+                > Her expression gradually becomes terrified as the scene color tone transitions into eerie, creating a terrifying atmosphere.`)
+        ]
+    },
+
+    {
+        vidDesc: "Freaky cafe",
+        vidUrl: "videos/Streets/SD1P-2B-2.mp4",
+        qns: [
+            genGenericQn("convey-emotion", "Effectiveness of Emotion", "How effectively does the character convey fear/terror in this scene?"),
+            genGenericQn("convey-eerie-bg", "Effectiveness of Background", "How effectively does the background convey a sense of eeriness in this scene?"),
+            coherenceQn,
+            genScenarioFulfilment(
+                ` Fixed camera. A woman is seated in a cafe.
+                > Her expression gradually becomes terrified as the scene color tone transitions into eerie, creating a terrifying atmosphere.`)
+        ]
+    },
+
+    {
+        vidDesc: "Freaky cafe",
+        vidUrl: "videos/Cafe/HL2P-2C-1.mp4",
+        qns: [
+            genGenericQn("convey-emotion", "Effectiveness of Emotion", "How effectively does the character convey fear/terror in this scene?"),
+            genGenericQn("convey-eerie-bg", "Effectiveness of Background", "How effectively does the background convey a sense of eeriness in this scene?"),
+            coherenceQn,
+            genScenarioFulfilment(
+                ` Fixed camera. A woman is seated in a cafe.
+                > Her expression gradually becomes terrified as the scene color tone transitions into eerie, creating a terrifying atmosphere.`)
+        ]
+    },
+
+    {
+        vidDesc: "Freaky cafe",
+        vidUrl: "videos/Cafe/HL2P-2C-2.mp4",
+        qns: [
+            genGenericQn("convey-emotion", "Effectiveness of Emotion", "How effectively does the character convey fear/terror in this scene?"),
+            genGenericQn("convey-eerie-bg", "Effectiveness of Background", "How effectively does the background convey a sense of eeriness in this scene?"),
+            coherenceQn,
+            genScenarioFulfilment(
+                ` Fixed camera. A woman is seated in a cafe.
+                > Her expression gradually becomes terrified as the scene color tone transitions into eerie, creating a terrifying atmosphere.`)
+        ]
+    },
+
 
 
 
