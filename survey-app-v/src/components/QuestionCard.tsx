@@ -2,7 +2,6 @@
 import { useState, type FC, type HTMLAttributes } from "react";
 import type { RatingLabelMap } from "../utils/ratinglabels";
 import RatingSlider from "./RatingSlider"
-import { inputHandleEnter } from "../utils/inputhandler";
 import QuestionMarkTooltip from "./QuestionMarkTooltip";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "@/redux/store";
@@ -68,8 +67,8 @@ const QuestionCard: FC<QuestionCardProps> = ({ name, title, description, labels,
                 isNegativeScore ?
                 <div className="flex items-center flex-col">
                     <p className="text-normal mb-3">Briefly explain why:</ p>
-                    <input className="w-4/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                    placeholder="Because..." name={name +"-comment"} onKeyDown={inputHandleEnter} autoComplete="off" required></input>
+                    <textarea className="w-4/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                    placeholder="Because..." name={name +"-comment"} autoComplete="off" required></textarea>
                 </div> :
                 <div></div>
             }
