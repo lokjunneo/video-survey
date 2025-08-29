@@ -30,19 +30,23 @@ function RoutingElement () {
 
       window.scrollTo(0, 0);
       return <Provider store={store}>
-                <div className='w-full min-h-screen bg-gray-50 flex'>
-                  <MOSSurveyForm className="w-2/5 mr-auto p-8" 
-                    vId={surveyForms[id].vidUrl} 
-                    qns={surveyForms[id].qns} 
-                    isExample={surveyForms[id].formType === FormType.Example}>
-                  </MOSSurveyForm> 
-                  <div className='w-3/5 sticky top-0 right-0 h-screen max-h-full flex flex-col items-center justify-center p-16'>
-              
-                    <VideoModule vidUrl={surveyForms[id].vidUrl} displayInitialFrame={surveyForms[id].qns.some(item => item.name === "object-consistency")}></VideoModule>
-              
-                  </div>
-              
+              <div className='w-full min-h-screen bg-gray-50 flex flex-col md:flex-row'>
+                {/* Mobile: Video module fixed at top, Desktop: Right side */}
+                <div className='max-w-full md:w-3/5 md:order-2 md:h-screen sticky top-0 md:right-0 max-h-1/5 md:max-h-full flex flex-col items-center justify-center p-4 md:p-16'>
+                  <VideoModule 
+                    vidUrl={surveyForms[id].vidUrl} 
+                    displayInitialFrame={surveyForms[id].qns.some(item => item.name === "object-consistency")}
+                  />
                 </div>
+                
+                {/* Mobile: Survey form scrollable below, Desktop: Left side */}
+                <MOSSurveyForm 
+                  className="w-full md:w-2/5 md:order-1 md:mr-auto p-4 md:p-8 flex-1 overflow-y-auto" 
+                  vId={surveyForms[id].vidUrl} 
+                  qns={surveyForms[id].qns} 
+                  isExample={surveyForms[id].formType === FormType.Example}
+                />
+              </div>
             </Provider>
     }
   }
