@@ -1,5 +1,6 @@
 import type { FormType } from "@/constants/FormTypes";
 import type { QuestionDataFormat } from "./questiondataformat";
+import { cloneElement } from "react";
 
 export interface SurveyDataFormat {
     vidUrl: string,
@@ -51,7 +52,7 @@ function parseInlineMD(input: string) {
   return parts;
 }
 
-function parseLine(line: string, key: number) {
+function parseLine(line: string, key: number): React.ReactElement<HTMLDivElement> {
   let className = "";
   let content = line;
 
@@ -69,5 +70,21 @@ function parseLine(line: string, key: number) {
 
 export function parseFakeMD(text: string) {
   const lines = text.split("\n");
-  return <>{lines.map((line, i) => parseLine(line, i))}</>;
+  let inQuote = false
+  return <>{lines.map((line, i) => {
+    const ret = parseLine(line, i)
+    if (!inQuote && ret.props.className.includes("border-l-4")) {
+      inQuote = true
+      return cloneElement(ret, {
+        className: `${ret.props.className} mt-3`,
+      })
+    }
+    else if (inQuote && !ret.props.className.includes("border-l-4")) {
+      inQuote = false
+      return cloneElement(ret, {
+        className: `${ret.props.className} mt-3`,
+      })
+    }
+
+    return parseLine(line, i) })}</>;
 }
