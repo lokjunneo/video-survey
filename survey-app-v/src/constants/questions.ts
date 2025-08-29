@@ -50,10 +50,24 @@ export const backgroundCoherenceQn: QuestionDataFormat = {
         1: "Complete glibberish",
         2: "Very incoherent",
         3: "Somewhat coherent",
-        4: "Very coherent",
+        4: "Mostly coherent",
         5: "Completely coherent"
     }
 }
+
+export const appealRatingQn: QuestionDataFormat = {
+    name: "appeal-rating",
+    title: "Appeal of Video",
+    description: "Rate how visually appealing this animation is.",
+    ratinglabels: {
+        1: "Disgusting",
+        2: "Very unappealing",
+        3: "Somewhat appealing",
+        4: "Very appealing",
+        5: "Extremely appealing"
+    }
+}
+
 
 export const errorFreeQualityQn: QuestionDataFormat = {
     name: "error-free-quality",
