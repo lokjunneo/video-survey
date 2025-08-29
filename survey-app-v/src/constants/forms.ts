@@ -135,9 +135,9 @@ export const surveyForms: SurveyDataFormat[] = [
     {
         vidDesc: `In this section, the following scenario will be covered:
         > A man and a woman does the following: 
-        > 1. lift their cups 
-        > 2. clink them together
-        > 3. take a sip of coffee`,
+        > 1. Lift their cups 
+        > 2. Clink them together
+        > 3. Take a sip of coffee`,
         vidUrl: "Section 2: Cheers",
         qns: [],
         formType: FormType.SectionMarker
@@ -312,7 +312,7 @@ export const surveyForms: SurveyDataFormat[] = [
 
     {
         vidDesc: "Gummy bears talk talk talk",
-        vidUrl: "videos/Streets/SD1P-2E-3.mp4",
+        vidUrl: "videos/Gummy/SD1P-2E-3.mp4",
         qns: [
             appealRatingQn,
             coherenceQn,
@@ -326,7 +326,7 @@ export const surveyForms: SurveyDataFormat[] = [
 
     {
         vidDesc: "Gummy bears talk talk talk",
-        vidUrl: "videos/Streets/SD1P-2G-3.mp4",
+        vidUrl: "videos/Gummy/SD1P-2G-3.mp4",
         qns: [
             appealRatingQn,
             coherenceQn,
@@ -340,7 +340,7 @@ export const surveyForms: SurveyDataFormat[] = [
 
     {
         vidDesc: "Gummy bears talk talk talk",
-        vidUrl: "videos/Streets/HL2P-2A-3.mp4",
+        vidUrl: "videos/Gummy/HL2P-2A-3.mp4",
         qns: [
             appealRatingQn,
             coherenceQn,
@@ -354,7 +354,7 @@ export const surveyForms: SurveyDataFormat[] = [
 
     {
         vidDesc: "Gummy bears talk talk talk",
-        vidUrl: "videos/Streets/HL2P-2F-1.mp4",
+        vidUrl: "videos/Gummy/HL2P-2F-1.mp4",
         qns: [
             appealRatingQn,
             coherenceQn,
@@ -382,7 +382,7 @@ export const surveyForms: SurveyDataFormat[] = [
 
     {
         vidDesc: "Gummy bears talk talk talk",
-        vidUrl: "videos/Streets/V3-1G-1.mp4",
+        vidUrl: "videos/Gummy/V3-1G-1.mp4",
         qns: [
             appealRatingQn,
             coherenceQn,
@@ -396,7 +396,7 @@ export const surveyForms: SurveyDataFormat[] = [
 
     {
         vidDesc: "Gummy bears talk talk talk",
-        vidUrl: "videos/Streets/V3-1G-2.mp4",
+        vidUrl: "videos/Gummy/V3-1G-2.mp4",
         qns: [
             appealRatingQn,
             coherenceQn,
@@ -422,7 +422,7 @@ export const surveyForms: SurveyDataFormat[] = [
 
     {
         vidDesc: "Freaky cafe",
-        vidUrl: "videos/Streets/V3-1B-1.mp4",
+        vidUrl: "videos/Cafe/V3-1B-1.mp4",
         qns: [
             genGenericQn("convey-emotion", "Effectiveness of Emotion", "How effectively does the character convey fear/terror in this scene?"),
             genGenericQn("convey-eerie-bg", "Effectiveness of Background", "How effectively does the background convey a sense of eeriness in this scene?"),
@@ -435,7 +435,7 @@ export const surveyForms: SurveyDataFormat[] = [
 
     {
         vidDesc: "Freaky cafe",
-        vidUrl: "videos/Streets/SD1P-2B-2.mp4",
+        vidUrl: "videos/Cafe/SD1P-2B-2.mp4",
         qns: [
             genGenericQn("convey-emotion", "Effectiveness of Emotion", "How effectively does the character convey fear/terror in this scene?"),
             genGenericQn("convey-eerie-bg", "Effectiveness of Background", "How effectively does the background convey a sense of eeriness in this scene?"),
