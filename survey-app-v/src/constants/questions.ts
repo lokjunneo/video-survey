@@ -28,6 +28,20 @@ export const naturalnessofMovementsQn: QuestionDataFormat = {
     requireExplanation: false
 }
 
+export const naturalnessofEmotionQn: QuestionDataFormat = {
+    name: "emotion-natural",
+    title: "Naturalness of Emotions",
+    description: "How natural does the character's emotions appear?",
+    ratinglabels: {
+        1: "Completely unnatural",
+        2: "Very unnatural",
+        3: "Somewhat natural",
+        4: "Very natural",
+        5: "Completely natural"
+    },
+    requireExplanation: false
+}
+
 export const coherenceQn: QuestionDataFormat = {
     name: "coherence",
     title: "Coherence of Video",
