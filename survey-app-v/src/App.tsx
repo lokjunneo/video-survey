@@ -1,7 +1,7 @@
 import { HashRouter, Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom';
 import './App.css'
 import AuthForm from "./components/AuthForm"
-import SurveyForm from "./components/SurveyForm"
+import MOSSurveyForm from "./components/MOSSurveyForm"
 import { surveyForms } from './constants/forms';
 import { Instructions } from './components/Instructions';
 import { Completion } from './components/Completion';
@@ -31,11 +31,11 @@ function RoutingElement () {
       window.scrollTo(0, 0);
       return <Provider store={store}>
                 <div className='w-full min-h-screen bg-gray-50 flex'>
-                  <SurveyForm className="w-2/5 mr-auto p-8" 
+                  <MOSSurveyForm className="w-2/5 mr-auto p-8" 
                     vId={surveyForms[id].vidUrl} 
                     qns={surveyForms[id].qns} 
                     isExample={surveyForms[id].formType === FormType.Example}>
-                  </SurveyForm> 
+                  </MOSSurveyForm> 
                   <div className='w-3/5 sticky top-0 right-0 h-screen max-h-full flex flex-col items-center justify-center p-16'>
               
                     <VideoModule vidUrl={surveyForms[id].vidUrl} displayInitialFrame={surveyForms[id].qns.some(item => item.name === "object-consistency")}></VideoModule>

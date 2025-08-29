@@ -7,13 +7,13 @@ import type { QuestionDataFormat } from '@/utils/questiondataformat';
 import { useNavigate, useParams } from 'react-router-dom';
 import AdditionalInput from './AdditionalInputCard';
 
-interface SurveyFormProps extends HTMLAttributes<HTMLDivElement> {  
+interface MOSSurveyFormProps extends HTMLAttributes<HTMLDivElement> {  
   vId: string; // optional, can override default "rating"
   isExample?: boolean;
   qns?: QuestionDataFormat[]
 }
 
-const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="", isExample=false,qns=[]}: SurveyFormProps) => {
+const MOSSurveyForm: FC<MOSSurveyFormProps> = ({vId = "Example", className="", isExample=false,qns=[]}: MOSSurveyFormProps) => {
     const [status, setStatus] = useState<string>("");
     const { idParam } = useParams()
     const navigate = useNavigate()
@@ -110,4 +110,4 @@ const SurveyForm: FC<SurveyFormProps> = ({vId = "Example", className="", isExamp
     );
   }
 
-  export default SurveyForm;
+  export default MOSSurveyForm;
