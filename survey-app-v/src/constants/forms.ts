@@ -83,9 +83,9 @@ export const surveyForms: SurveyDataFormat[] = [
         vidDesc: `That's all the example questions we have. The survey will officially begin now.
         In this section, the following scenario will be covered:
         > A veteran does the following: 
-        > 1. walks left and exits the camera frame, 
-        > 2. walks back into the camera frame from the right, 
-        > 3. finally, stops at his original position.
+        > 1. Walks left and exits the camera frame, 
+        > 2. Walks back into the camera frame from the right, 
+        > 3. Finally, stops at his original position.
         > The camera does not move.`,
         vidUrl: "Section 1  : Veteran",
         qns: [],
@@ -93,41 +93,41 @@ export const surveyForms: SurveyDataFormat[] = [
     },
     // Veteran
     {
-        vidDesc: "The veteran walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",
+        vidDesc: "The veteran Walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",
         vidUrl: "videos/Veteran/Apple",
         qns: [
             genObjConsistencyQn(["the veteran","his uniform"]),
             genScenarioFulfilment(`
                 > A veteran does the following: 
-                > 1. walks left and exits the camera frame, 
-                > 2. walks back into the camera frame from the right, 
-                > 3. finally, stops at his original position.
+                > 1. Walks left and exits the camera frame, 
+                > 2. Walks back into the camera frame from the right, 
+                > 3. Finally, stops at his original position.
                 > The camera does not move.`)
         ]
     },
     {
-        vidDesc: "The veteran walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",
+        vidDesc: "The veteran Walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",
         vidUrl: "videos/Veteran/Apple-2",
         qns: [
             genObjConsistencyQn(["the veteran","his uniform"]),
             genScenarioFulfilment(`
                 > A veteran does the following: 
-                > 1. walks left and exits the camera frame, 
-                > 2. walks back into the camera frame from the right, 
-                > 3. finally, stops at his original position.
+                > 1. Walks left and exits the camera frame, 
+                > 2. Walks back into the camera frame from the right, 
+                > 3. Finally, stops at his original position.
                 > The camera does not move.`)
         ]
     },
     {
-        vidDesc: "The veteran walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",
+        vidDesc: "The veteran Walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",
         vidUrl: "videos/Veteran/Banana",
         qns: [
             genObjConsistencyQn(["the veteran","his uniform"]),
             genScenarioFulfilment(`
                 > A veteran does the following: 
-                > 1. walks left and exits the camera frame, 
-                > 2. walks back into the camera frame from the right, 
-                > 3. finally, stops at his original position.
+                > 1. Walks left and exits the camera frame, 
+                > 2. Walks back into the camera frame from the right, 
+                > 3. Finally, stops at his original position.
                 > The camera does not move.`)
         ]
     },
