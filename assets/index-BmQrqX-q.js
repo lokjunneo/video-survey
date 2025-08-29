@@ -1920,29 +1920,29 @@ Note that the question should cover only the naturalness of the movement.
 "Any Other Issues" field.)`),On],formType:We.Normal},{vidDesc:`That's all the example questions we have. The survey will officially begin now.
         In this section, the following scenario will be covered:
         > A veteran does the following: 
-        > 1. walks left and exits the camera frame, 
-        > 2. walks back into the camera frame from the right, 
-        > 3. finally, stops at his original position.
-        > The camera does not move.`,vidUrl:"Section 1  : Veteran",qns:[],formType:We.SectionMarker},{vidDesc:"The veteran walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",vidUrl:"videos/Veteran/Apple",qns:[Pi(["the veteran","his uniform"]),$t(`
+        > 1. Walks left and exits the camera frame, 
+        > 2. Walks back into the camera frame from the right, 
+        > 3. Finally, stops at his original position.
+        > The camera does not move.`,vidUrl:"Section 1  : Veteran",qns:[],formType:We.SectionMarker},{vidDesc:"The veteran Walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",vidUrl:"videos/Veteran/Apple",qns:[Pi(["the veteran","his uniform"]),$t(`
                 > A veteran does the following: 
-                > 1. walks left and exits the camera frame, 
-                > 2. walks back into the camera frame from the right, 
-                > 3. finally, stops at his original position.
-                > The camera does not move.`)]},{vidDesc:"The veteran walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",vidUrl:"videos/Veteran/Apple-2",qns:[Pi(["the veteran","his uniform"]),$t(`
+                > 1. Walks left and exits the camera frame, 
+                > 2. Walks back into the camera frame from the right, 
+                > 3. Finally, stops at his original position.
+                > The camera does not move.`)]},{vidDesc:"The veteran Walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",vidUrl:"videos/Veteran/Apple-2",qns:[Pi(["the veteran","his uniform"]),$t(`
                 > A veteran does the following: 
-                > 1. walks left and exits the camera frame, 
-                > 2. walks back into the camera frame from the right, 
-                > 3. finally, stops at his original position.
-                > The camera does not move.`)]},{vidDesc:"The veteran walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",vidUrl:"videos/Veteran/Banana",qns:[Pi(["the veteran","his uniform"]),$t(`
+                > 1. Walks left and exits the camera frame, 
+                > 2. Walks back into the camera frame from the right, 
+                > 3. Finally, stops at his original position.
+                > The camera does not move.`)]},{vidDesc:"The veteran Walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",vidUrl:"videos/Veteran/Banana",qns:[Pi(["the veteran","his uniform"]),$t(`
                 > A veteran does the following: 
-                > 1. walks left and exits the camera frame, 
-                > 2. walks back into the camera frame from the right, 
-                > 3. finally, stops at his original position.
+                > 1. Walks left and exits the camera frame, 
+                > 2. Walks back into the camera frame from the right, 
+                > 3. Finally, stops at his original position.
                 > The camera does not move.`)]},{vidDesc:`In this section, the following scenario will be covered:
         > A man and a woman does the following: 
-        > 1. lift their cups 
-        > 2. clink them together
-        > 3. take a sip of coffee`,vidUrl:"Section 2: Cheers",qns:[],formType:We.SectionMarker},{vidDesc:"The man and the woman lift their cups, clink them together, and take a sip of coffee.",vidUrl:"videos/Cheers/V3-1CB-3.mp4",qns:[rn,On,$t('"The man and the woman lift their cups, clink them together, and take a sip of coffee."')]},{vidDesc:"The man and the woman lift their cups, clink them together, and take a sip of coffee.",vidUrl:"videos/Cheers/SD1-2D-2.mp4",qns:[rn,On,$t('"The man and the woman lift their cups, clink them together, and take a sip of coffee."')]},{vidDesc:"The man and the woman lift their cups, clink them together, and take a sip of coffee.",vidUrl:"videos/Cheers/hailuo2pro_4.mp4",qns:[rn,On,$t('"The man and the woman lift their cups, clink them together, and take a sip of coffee."')]},{vidDesc:`In this section, the following scenario will be covered:
+        > 1. Lift their cups 
+        > 2. Clink them together
+        > 3. Take a sip of coffee`,vidUrl:"Section 2: Cheers",qns:[],formType:We.SectionMarker},{vidDesc:"The man and the woman lift their cups, clink them together, and take a sip of coffee.",vidUrl:"videos/Cheers/V3-1CB-3.mp4",qns:[rn,On,$t('"The man and the woman lift their cups, clink them together, and take a sip of coffee."')]},{vidDesc:"The man and the woman lift their cups, clink them together, and take a sip of coffee.",vidUrl:"videos/Cheers/SD1-2D-2.mp4",qns:[rn,On,$t('"The man and the woman lift their cups, clink them together, and take a sip of coffee."')]},{vidDesc:"The man and the woman lift their cups, clink them together, and take a sip of coffee.",vidUrl:"videos/Cheers/hailuo2pro_4.mp4",qns:[rn,On,$t('"The man and the woman lift their cups, clink them together, and take a sip of coffee."')]},{vidDesc:`In this section, the following scenario will be covered:
         > 1. A cameraman, using a handheld camera, approaches a cardboard standee.
         > (A handheld camera has a natural wobble to it.)
         > 2. Suddenly, the standee comes to life! It starts walking towards the cameraman.
