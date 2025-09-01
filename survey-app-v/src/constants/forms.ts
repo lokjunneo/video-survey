@@ -118,9 +118,38 @@ export const surveyForms: SurveyDataFormat[] = [
                 > The camera does not move.`)
         ]
     },
+
+    {
+        vidDesc: "The veteran Walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",
+        vidUrl: "videos/Veteran/Carrot-2",
+        qns: [
+            genObjConsistencyQn(["the veteran","his uniform"]),
+            genScenarioFulfilment(`
+                > A veteran does the following: 
+                > 1. Walks left and exits the camera frame, 
+                > 2. Walks back into the camera frame from the right, 
+                > 3. Finally, stops at his original position.
+                > The camera does not move.`)
+        ]
+    },
+
     {
         vidDesc: "The veteran Walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",
         vidUrl: "videos/Veteran/Banana",
+        qns: [
+            genObjConsistencyQn(["the veteran","his uniform"]),
+            genScenarioFulfilment(`
+                > A veteran does the following: 
+                > 1. Walks left and exits the camera frame, 
+                > 2. Walks back into the camera frame from the right, 
+                > 3. Finally, stops at his original position.
+                > The camera does not move.`)
+        ]
+    },
+
+    {
+        vidDesc: "The veteran Walks left and exits frame, then walk back into the frame from the right, and stops at his original position.",
+        vidUrl: "videos/Veteran/Carrot",
         qns: [
             genObjConsistencyQn(["the veteran","his uniform"]),
             genScenarioFulfilment(`

@@ -5,7 +5,7 @@ export interface QuestionDataFormat {
     title: string;
     description: string;
     additionalExplanation?: string;
-    requireExplanation?: Boolean;
+    requireExplanation?: boolean;
     ratinglabels?: RatingLabelMap; // no rating slider shows up, if no rating labels are defined
     mode?: string
 }
