@@ -32,7 +32,7 @@ function RoutingElement () {
       return <Provider store={store}>
               <div className='w-full min-h-screen bg-gray-50 flex flex-col md:flex-row'>
                 {/* Mobile: Video module fixed at top, Desktop: Right side */}
-                <div className='max-w-full md:w-3/5 md:order-2 md:h-screen sticky top-0 md:right-0 max-h-1/5 md:max-h-full flex flex-col items-center justify-center p-4 md:p-16'>
+                <div className='max-w-full md:w-3/5 md:order-2 md:h-auto md:h-screen sticky top-0 md:right-0 max-h-1/5 md:max-h-full flex flex-col items-center md:justify-center md:p-16'>
                   <VideoModule 
                     vidUrl={surveyForms[id].vidUrl} 
                     displayInitialFrame={surveyForms[id].qns.some(item => item.name === "object-consistency")}

@@ -12,7 +12,7 @@ interface VideoThumbnailProps extends HTMLAttributes<HTMLDivElement> {
           <video
               prefix="metadata"
               controls={false}
-              className="rounded shadow-lg max-w-full max-h-full object-contain"
+              className="rounded shadow-lg max-w-full max-h-[40vh] md:max-h-full object-contain"
           >
               <source
               src={src}
