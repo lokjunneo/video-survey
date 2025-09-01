@@ -21,7 +21,7 @@ function RoutingElement () {
     let id = parseInt(idParam)
     if (!isNaN(parseInt(idParam))){
       if (id === 0) return <Instructions />
-      if (id > surveyForms.length) return <Completion />
+      if (id > surveyForms.length) return <Provider store={store}><Completion /></Provider>
       id = id-1
 
       // lazy
