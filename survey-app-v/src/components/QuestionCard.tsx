@@ -14,7 +14,7 @@ interface QuestionCardProps extends HTMLAttributes<HTMLDivElement>{
     name?: string, // form field name
     labels?: RatingLabelMap,
     additionalExplanation?: string,
-    requireExplanation?: Boolean
+    requireExplanation?: boolean
 }
 
 const QuestionCard: FC<QuestionCardProps> = ({ name, title, description, labels, additionalExplanation, requireExplanation = true }) => {
@@ -57,18 +57,16 @@ const QuestionCard: FC<QuestionCardProps> = ({ name, title, description, labels,
             <br></br>
             { 
                 labels ?
-                    requireExplanation ? 
-                    <RatingSlider name={name +"-score"} labels={labels} setIsNegativeScore={setIsNegativeScore}></RatingSlider> :
-                    <RatingSlider name={name +"-score"} labels={labels}></RatingSlider> 
-                    :
-                <></>
+                    <RatingSlider name={name +"-score"} labels={labels} setIsNegativeScore={setIsNegativeScore}></RatingSlider>:
+                    <></>
+                    // <RatingSlider name={name +"-score"} labels={labels}></RatingSlider> 
             }
             {
                 isNegativeScore ?
                 <div className="flex items-center flex-col">
-                    <p className="text-normal mb-3">Briefly explain why:</ p>
+                    <p className="text-normal mb-3">{`${requireExplanation ? "" : "(Optional) "}Briefly explain why:`}</ p>
                     <textarea className="w-4/6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                    placeholder="Because..." name={name +"-comment"} autoComplete="off" required></textarea>
+                    placeholder="Because..." name={name +"-comment"} autoComplete="off" required={requireExplanation}></textarea>
                 </div> :
                 <div></div>
             }
