@@ -4,7 +4,7 @@ import { FormType } from "./FormTypes";
 
 
 // surveyForms but different order
-export const surveyFormsInverted: SurveyDataFormat[] = [
+export const surveyForms: SurveyDataFormat[] = [
 
     {
         vidDesc: "First, we will go through a few example questions",
@@ -370,7 +370,7 @@ export const surveyFormsInverted: SurveyDataFormat[] = [
         > 1. Lift their cups 
         > 2. Clink them together
         > 3. Take a sip of coffee`,
-        vidUrl: "Section 2: Cheers",
+        vidUrl: "Section E: Cheers",
         qns: [],
         formType: FormType.SectionMarker
     },
@@ -412,7 +412,7 @@ export const surveyFormsInverted: SurveyDataFormat[] = [
         > 2. Walks back into the camera frame from the right, 
         > 3. Finally, stops at his original position.
         > The camera does not move.`,
-        vidUrl: "Section 1  : Veteran",
+        vidUrl: "Section F  : Veteran",
         qns: [],
         formType: FormType.SectionMarker
     },
