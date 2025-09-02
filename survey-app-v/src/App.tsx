@@ -2,8 +2,8 @@ import { HashRouter, Navigate, Route, Routes, useLocation, useParams } from 'rea
 import './App.css'
 import AuthForm from "./components/AuthForm"
 import MOSSurveyForm from "./components/MOSSurveyForm"
-import { surveyForms } from './constants/forms';
-// import { surveyForms } from './constants/forms_inverted';
+import { surveyForms as surveyFormsOriginal } from './constants/forms';
+import { surveyForms as surveyFormsInverted } from './constants/forms_inverted';
 import { Instructions } from './components/Instructions';
 import { Completion } from './components/Completion';
 import { useEffect, useRef } from 'react';
@@ -17,6 +17,8 @@ import { SectionMarker } from './components/SectionMarker';
 
 function RoutingElement () {
   const { idParam } = useParams()
+
+  let surveyForms = !window.sessionStorage.getItem("invertme") ? surveyFormsOriginal : surveyFormsInverted;
 
   if (idParam) {
     let id = parseInt(idParam)

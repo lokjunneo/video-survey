@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 export default function AuthForm() {
     const [status, setStatus] = useState<string>("");
+    const [isInvertChecked, setIsInvertChecked] = useState(false);
+
     const navigate = useNavigate();
   
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,6 +34,10 @@ export default function AuthForm() {
         window.sessionStorage.setItem("name", data["name"])
         window.sessionStorage.setItem("email", data["email"])
         window.sessionStorage.setItem("password", data["password"])
+
+        if (isInvertChecked) {
+          window.sessionStorage.setItem("invertme", "true")
+        }
 
         navigate("/0");
         window.location.reload()
@@ -71,6 +77,16 @@ export default function AuthForm() {
               placeholder="Enter password here:"
               required
             />
+          </div>
+          
+          <div className="flex flex-row">
+
+            <input
+              type="checkbox"
+              checked={isInvertChecked}
+              onChange={(e) => setIsInvertChecked(e.target.checked)}
+            /> &nbsp;
+            Flip Survey Order 
           </div>
           <div className="flex flex-col">
             <button
