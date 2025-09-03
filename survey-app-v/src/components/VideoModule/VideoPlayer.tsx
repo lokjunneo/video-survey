@@ -12,7 +12,7 @@ interface VideoPlayerProps extends HTMLAttributes<HTMLDivElement> {
       <div className='flex-1 flex overflow-hidden w-full items-center justify-center'>
         <video
             // autoPlay
-            loop
+            // loop
             controls
             className="rounded shadow-lg max-w-full max-h-[40vh] md:max-h-full object-contain"
         >
